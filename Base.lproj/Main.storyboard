@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ha9-mD-I0S">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,16 +9,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="sdH-0D-t4b">
+            <objects>
+                <navigationController id="ha9-mD-I0S" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bGa-ek-fJ7">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0Mv-zN-lvY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAD-qP-oS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-785" y="27"/>
+        </scene>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" title="LoginVC" id="BYZ-38-t0r" customClass="ViewController" customModule="SJSU_GO_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="LoginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SJSU_GO_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sjsu_go_logo" translatesAutoresizingMaskIntoConstraints="NO" id="wLd-nL-7V2">
-                                <rect key="frame" x="87.5" y="70" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="114" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="hwE-9a-ZqF"/>
                                     <constraint firstAttribute="width" constant="200" id="l4c-ia-glz"/>
@@ -46,6 +62,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Df8-ve-vbd"/>
                                             <segue destination="nxH-k3-Fdu" kind="presentation" id="cGp-zx-kcu"/>
                                         </connections>
                                     </button>
@@ -64,7 +81,7 @@
                                         <rect key="frame" x="213.5" y="0.0" width="61.5" height="30"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
-                                            <segue destination="bEt-za-wE2" kind="presentation" id="tJB-P4-SZe"/>
+                                            <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfu-Fd-jv8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -83,6 +100,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Gwb-3F-6bN"/>
+                    <connections>
+                        <outlet property="idTextField" destination="Fpm-nR-fDr" id="s6d-uD-m8i"/>
+                        <outlet property="logInButton" destination="88Z-P7-g1y" id="UiG-tC-9yp"/>
+                        <outlet property="passwordTextField" destination="0de-an-5eI" id="G1G-qi-bA5"/>
+                        <outlet property="signUpButton" destination="2Ub-Yn-3p9" id="0TF-GC-n0e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -661,7 +685,7 @@
         <!--SignUpVC-->
         <scene sceneID="hci-fi-iLZ">
             <objects>
-                <viewController title="SignUpVC" id="bEt-za-wE2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" title="SignUpVC" id="bEt-za-wE2" customClass="SignUpViewController" customModule="SJSU_GO_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hax-a6-2H5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -723,7 +747,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="Byd-Hf-Iun"/>
+                                    <action selector="signUp:" destination="bEt-za-wE2" eventType="touchUpInside" id="1fl-CA-Aci"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-hz-vxn">
@@ -732,7 +756,7 @@
                                     <navigationItem title="Sign Up" id="AGu-FS-TeS">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="V53-03-6yd">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" id="oRd-0K-Auw"/>
+                                                <action selector="cancel:" destination="bEt-za-wE2" id="1cU-BZ-JRr"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -752,6 +776,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2sf-Rd-nAy"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="V53-03-6yd" id="PO2-u4-xrY"/>
+                        <outlet property="emailTextField" destination="LBX-bz-lxk" id="Y8l-Lg-d5e"/>
+                        <outlet property="firstNameTextField" destination="NDo-LR-tFM" id="bOb-XU-4wM"/>
+                        <outlet property="idTextField" destination="qFw-lx-cNn" id="ncb-2u-5aV"/>
+                        <outlet property="lastNameTextField" destination="HLI-Ao-WSJ" id="Gcq-xB-jVs"/>
+                        <outlet property="passwordTextField" destination="Clx-N7-C0L" id="Xp1-in-7Vc"/>
+                        <outlet property="signUpButton" destination="eJ0-S7-Ap8" id="c5t-B9-1gI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6O-2K-SFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -763,6 +796,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z6w-ac-Ntg"/>
-        <segue reference="Byd-Hf-Iun"/>
     </inferredMetricsTieBreakers>
 </document>

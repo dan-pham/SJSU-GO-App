@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		647CDA6102A17EC65FF08840 /* Pods_SJSU_GO_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */; };
+		C3479846225EC00E00C23F6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3479845225EC00E00C23F6B /* LoginViewController.swift */; };
 		C376C67E225E9D8900644468 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C376C67D225E9D8900644468 /* GoogleService-Info.plist */; };
 		C3E9607322387A4D002E19BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E9607222387A4D002E19BF /* AppDelegate.swift */; };
-		C3E9607522387A4D002E19BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E9607422387A4D002E19BF /* ViewController.swift */; };
+		C3E9607522387A4D002E19BF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E9607422387A4D002E19BF /* SignUpViewController.swift */; };
 		C3E9607822387A4D002E19BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E9607622387A4D002E19BF /* Main.storyboard */; };
 		C3E9607A22387A4F002E19BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E9607922387A4F002E19BF /* Assets.xcassets */; };
 		C3E9607D22387A4F002E19BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E9607B22387A4F002E19BF /* LaunchScreen.storyboard */; };
@@ -19,10 +20,11 @@
 /* Begin PBXFileReference section */
 		661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.release.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.release.xcconfig"; sourceTree = "<group>"; };
 		8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SJSU_GO_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3479845225EC00E00C23F6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C376C67D225E9D8900644468 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3E9606F22387A4D002E19BF /* SJSU GO App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SJSU GO App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E9607222387A4D002E19BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C3E9607422387A4D002E19BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3E9607422387A4D002E19BF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C3E9607722387A4D002E19BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3E9607922387A4F002E19BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3E9607C22387A4F002E19BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C3479847225EC08400C23F6B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C3E9607622387A4D002E19BF /* Main.storyboard */,
+				C3E9607B22387A4F002E19BF /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C3479848225EC09400C23F6B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3E9607922387A4F002E19BF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C3479849225EC0AE00C23F6B /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				C3E9607E22387A4F002E19BF /* Info.plist */,
+				C376C67D225E9D8900644468 /* GoogleService-Info.plist */,
+			);
+			path = plists;
+			sourceTree = "<group>";
+		};
 		C3D08E5D225EA45A0060BB40 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +105,8 @@
 		C3D08E5F225EA4680060BB40 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C3479845225EC00E00C23F6B /* LoginViewController.swift */,
+				C3E9607422387A4D002E19BF /* SignUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -101,16 +132,13 @@
 		C3E9607122387A4D002E19BF /* SJSU GO App */ = {
 			isa = PBXGroup;
 			children = (
+				C3E9607222387A4D002E19BF /* AppDelegate.swift */,
 				C3D08E5F225EA4680060BB40 /* Controllers */,
 				C3D08E5E225EA4620060BB40 /* Views */,
 				C3D08E5D225EA45A0060BB40 /* Models */,
-				C3E9607222387A4D002E19BF /* AppDelegate.swift */,
-				C3E9607422387A4D002E19BF /* ViewController.swift */,
-				C3E9607622387A4D002E19BF /* Main.storyboard */,
-				C3E9607922387A4F002E19BF /* Assets.xcassets */,
-				C3E9607B22387A4F002E19BF /* LaunchScreen.storyboard */,
-				C3E9607E22387A4F002E19BF /* Info.plist */,
-				C376C67D225E9D8900644468 /* GoogleService-Info.plist */,
+				C3479847225EC08400C23F6B /* Storyboards */,
+				C3479848225EC09400C23F6B /* Resources */,
+				C3479849225EC0AE00C23F6B /* plists */,
 			);
 			path = "SJSU GO App";
 			sourceTree = "<group>";
@@ -303,7 +331,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3E9607522387A4D002E19BF /* ViewController.swift in Sources */,
+				C3479846225EC00E00C23F6B /* LoginViewController.swift in Sources */,
+				C3E9607522387A4D002E19BF /* SignUpViewController.swift in Sources */,
 				C3E9607322387A4D002E19BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,7 +483,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J6YZ86R5K6;
-				INFOPLIST_FILE = "SJSU GO App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SJSU GO App/plists/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -476,7 +505,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J6YZ86R5K6;
-				INFOPLIST_FILE = "SJSU GO App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SJSU GO App/plists/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
