@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		647CDA6102A17EC65FF08840 /* Pods_SJSU_GO_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */; };
+		C376C67E225E9D8900644468 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C376C67D225E9D8900644468 /* GoogleService-Info.plist */; };
 		C3E9607322387A4D002E19BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E9607222387A4D002E19BF /* AppDelegate.swift */; };
 		C3E9607522387A4D002E19BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E9607422387A4D002E19BF /* ViewController.swift */; };
 		C3E9607822387A4D002E19BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E9607622387A4D002E19BF /* Main.storyboard */; };
@@ -15,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.release.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.release.xcconfig"; sourceTree = "<group>"; };
+		8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SJSU_GO_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C376C67D225E9D8900644468 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3E9606F22387A4D002E19BF /* SJSU GO App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SJSU GO App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E9607222387A4D002E19BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3E9607422387A4D002E19BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		C3E9607922387A4F002E19BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3E9607C22387A4F002E19BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3E9607E22387A4F002E19BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA1DB7B20E31F553BC8D8916 /* Pods-SJSU GO App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.debug.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				647CDA6102A17EC65FF08840 /* Pods_SJSU_GO_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0811F30F82BB21850228FF88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA1DB7B20E31F553BC8D8916 /* Pods-SJSU GO App.debug.xcconfig */,
+				661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9F90408F63FA7A4C5F640E17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3D08E5D225EA45A0060BB40 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C3D08E5E225EA4620060BB40 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C3D08E5F225EA4680060BB40 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		C3E9606622387A4D002E19BF = {
 			isa = PBXGroup;
 			children = (
 				C3E9607122387A4D002E19BF /* SJSU GO App */,
 				C3E9607022387A4D002E19BF /* Products */,
+				0811F30F82BB21850228FF88 /* Pods */,
+				9F90408F63FA7A4C5F640E17 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +101,16 @@
 		C3E9607122387A4D002E19BF /* SJSU GO App */ = {
 			isa = PBXGroup;
 			children = (
+				C3D08E5F225EA4680060BB40 /* Controllers */,
+				C3D08E5E225EA4620060BB40 /* Views */,
+				C3D08E5D225EA45A0060BB40 /* Models */,
 				C3E9607222387A4D002E19BF /* AppDelegate.swift */,
 				C3E9607422387A4D002E19BF /* ViewController.swift */,
 				C3E9607622387A4D002E19BF /* Main.storyboard */,
 				C3E9607922387A4F002E19BF /* Assets.xcassets */,
 				C3E9607B22387A4F002E19BF /* LaunchScreen.storyboard */,
 				C3E9607E22387A4F002E19BF /* Info.plist */,
+				C376C67D225E9D8900644468 /* GoogleService-Info.plist */,
 			);
 			path = "SJSU GO App";
 			sourceTree = "<group>";
@@ -71,9 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3E9608122387A4F002E19BF /* Build configuration list for PBXNativeTarget "SJSU GO App" */;
 			buildPhases = (
+				7C5C52201422F3501C5D8E99 /* [CP] Check Pods Manifest.lock */,
 				C3E9606B22387A4D002E19BF /* Sources */,
 				C3E9606C22387A4D002E19BF /* Frameworks */,
 				C3E9606D22387A4D002E19BF /* Resources */,
+				C45FC7665491B45177D28D6A /* [CP] Embed Pods Frameworks */,
+				CCB041BBA8BA3F465C40BC99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,12 +177,126 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3E9607D22387A4F002E19BF /* LaunchScreen.storyboard in Resources */,
+				C376C67E225E9D8900644468 /* GoogleService-Info.plist in Resources */,
 				C3E9607A22387A4F002E19BF /* Assets.xcassets in Resources */,
 				C3E9607822387A4D002E19BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7C5C52201422F3501C5D8E99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SJSU GO App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C45FC7665491B45177D28D6A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCB041BBA8BA3F465C40BC99 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C3E9606B22387A4D002E19BF /* Sources */ = {
@@ -280,6 +448,7 @@
 		};
 		C3E9608222387A4F002E19BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA1DB7B20E31F553BC8D8916 /* Pods-SJSU GO App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -301,6 +470,7 @@
 		};
 		C3E9608322387A4F002E19BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

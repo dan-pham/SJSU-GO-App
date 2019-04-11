@@ -1,0 +1,6 @@
+framework module Pods_SJSU_GO_App {
+  umbrella header "Pods-SJSU GO App-umbrella.h"
+
+  export *
+  module * { export * }
+}
