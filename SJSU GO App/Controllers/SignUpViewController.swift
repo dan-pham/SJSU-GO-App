@@ -61,10 +61,36 @@ class SignUpViewController: UIViewController {
         let firstName = firstNameTextField.text! as String
         let lastName = lastNameTextField.text! as String
         
-        ref.child("users/\(sjsuId)/sjsu_password").setValue(sjsuPassword)
-        ref.child("users/\(sjsuId)/sjsu_email").setValue(sjsuEmail)
-        ref.child("users/\(sjsuId)/first_name").setValue(firstName)
-        ref.child("users/\(sjsuId)/last_name").setValue(lastName)
+        Auth.auth().createUser(withEmail: sjsuEmail, password: sjsuPassword) { (user, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+                // successfuly registered
+            else
+            {
+                let userID = Auth.auth().currentUser!.uid
+                print("registration successful")
+                
+                self.ref.child("users").child(userID).setValue(["sjsu_id": sjsuId,"sjsu_email": sjsuEmail,"sjsu_password": sjsuPassword,"first_name": firstName,"last_name": lastName])
+                // go to goToLogin view //
+                // self.performSegue(withIdentifier: "goToLogin", sender: self)
+            }
+            //here
+        }
+        
+        //set value inside userID.
+        /*
+         ref.child("users/\(userID)/sjsu_id").setValue(sjsuId)
+         ref.child("users/\(userID)/sjsu_email").setValue(sjsuEmail)
+         ref.child("users/\(userID)/sjsu_password").setValue(sjsuPassword)
+         
+         ref.child("users/\(userID)/first_name").setValue(firstName)
+         ref.child("users/\(userID)/last_name").setValue(lastName)
+         */
+        
+        
+        
     }
     
     func clearTextFields() {
