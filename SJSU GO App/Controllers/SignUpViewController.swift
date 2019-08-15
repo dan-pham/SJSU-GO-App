@@ -13,7 +13,6 @@ class SignUpViewController: UIViewController {
 
     // MARK: Properties
     
-    var ref: DatabaseReference!
     var majorButton = DropDownButton()
     var majorButtonConstraints = [NSLayoutConstraint]()
     
@@ -31,25 +30,22 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
-        configureDatabase()
+        delegateTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        configureMajorButton()
+//        configureMajorButton()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        NSLayoutConstraint.deactivate(majorButtonConstraints)
-        majorButton.dropView.removeFromSuperview()
-        self.majorButton.removeFromSuperview()
-        majorButton.removeFromSuperview()
-    }
-    
-    func configureDatabase() {
-        ref = Database.database().reference()
+        clearTextFields()
+        
+//        NSLayoutConstraint.deactivate(majorButtonConstraints)
+//        majorButton.dropView.removeFromSuperview()
+//        self.majorButton.removeFromSuperview()
+//        majorButton.removeFromSuperview()
     }
     
     func configureMajorButton() {
@@ -69,58 +65,70 @@ class SignUpViewController: UIViewController {
         majorButton.dropView.dropDownOptions = ["Aerospace Engineering", "Computer Engineering", "Electrical Engineering", "Software Engineering"]
     }
     
+    func configureAcademicYearButton() {
+        
+    }
+    
     // MARK: Actions
     
     @IBAction func cancel(_ sender: Any) {
-        clearTextFields()
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func signUp(_ sender: Any) {
-        if !idTextField.text!.isEmpty  && !passwordTextField.text!.isEmpty && !emailTextField.text!.isEmpty && !firstNameTextField.text!.isEmpty && !lastNameTextField.text!.isEmpty {
-            createNewUser()
-            clearTextFields()
-            navigationController?.popViewController(animated: true)
-        } else {
-            debugPrint("Please fill in every text field except for the major and academic year.")
+        
+        guard idTextField.hasText && passwordTextField.hasText && emailTextField.hasText && firstNameTextField.hasText && lastNameTextField.hasText else {
+            print("Please fill in every text field except for the major and academic year.")
+            return
+        }
+        
+        guard let sjsuId = idTextField.text, let sjsuPassword = passwordTextField.text, let sjsuEmail = emailTextField.text, let firstName = firstNameTextField.text, let lastName = lastNameTextField.text else {
+            print("Sign up failed")
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: sjsuEmail, password: sjsuPassword) { (user, error) in
+            
+            if error != nil {
+                print("Error creating user: \(error!.localizedDescription)")
+                return
+            }
+            
+            guard let uid = user?.user.uid else {
+                return
+            }
+            
+            let values = ["sjsu_id": sjsuId, "sjsu_email": sjsuEmail, "sjsu_password": sjsuPassword, "first_name": firstName, "last_name": lastName]
+            
+            self.registerUserIntoDatabaseWithUID(uid, values: values as [String : AnyObject])
         }
     }
     
-    func createNewUser() {
-        let sjsuId = idTextField.text! as String
-        let sjsuPassword = passwordTextField.text! as String
-        let sjsuEmail = emailTextField.text! as String
-        let firstName = firstNameTextField.text! as String
-        let lastName = lastNameTextField.text! as String
+    func registerUserIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users").child(uid)
         
-        Auth.auth().createUser(withEmail: sjsuEmail, password: sjsuPassword) { (user, error) in
-            if error != nil
-            {
-                print(error!)
+        usersReference.updateChildValues(values) { (error, ref) in
+            
+            if let error = error {
+                print("Error updating child values in database: ", error)
+                return
             }
-                // successfuly registered
-            else
-            {
-                let userID = Auth.auth().currentUser!.uid
-                print("registration successful")
-                
-                self.ref.child("users").child(userID).setValue(["sjsu_id": sjsuId,"sjsu_email": sjsuEmail,"sjsu_password": sjsuPassword,"first_name": firstName,"last_name": lastName])
-                // go to goToLogin view //
-                // self.performSegue(withIdentifier: "goToLogin", sender: self)
-            }
-            //here
+            
+            self.navigationController?.popViewController(animated: true)
         }
-        
-        //set value inside userID.
-        /*
-         ref.child("users/\(userID)/sjsu_id").setValue(sjsuId)
-         ref.child("users/\(userID)/sjsu_email").setValue(sjsuEmail)
-         ref.child("users/\(userID)/sjsu_password").setValue(sjsuPassword)
-         
-         ref.child("users/\(userID)/first_name").setValue(firstName)
-         ref.child("users/\(userID)/last_name").setValue(lastName)
-         */
-        
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SignUpViewController: UITextFieldDelegate {
+    func delegateTextFields() {
+        idTextField.delegate = self
+        passwordTextField.delegate = self
+        emailTextField.delegate = self
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
     }
     
     func clearTextFields() {
@@ -131,14 +139,12 @@ class SignUpViewController: UIViewController {
         lastNameTextField.text = ""
     }
     
-}
-
-extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+        return textField.resignFirstResponder()
     }
 }
+
+// MARK: - DropDownButton
 
 protocol DropDownProtocol {
     func dropDownPressed(string: String)
