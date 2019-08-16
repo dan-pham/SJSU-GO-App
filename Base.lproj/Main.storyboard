@@ -63,7 +63,6 @@
                                         </state>
                                         <connections>
                                             <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Df8-ve-vbd"/>
-                                            <segue destination="nxH-k3-Fdu" kind="presentation" id="cGp-zx-kcu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -691,7 +690,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IDR-LZ-nZD">
-                                <rect key="frame" x="16" y="89" width="343" height="258"/>
+                                <rect key="frame" x="16" y="80" width="343" height="258"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SJSU ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qFw-lx-cNn">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -703,7 +702,7 @@
                                         <rect key="frame" x="0.0" y="38" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SJSU Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBX-bz-lxk">
                                         <rect key="frame" x="0.0" y="76" width="343" height="30"/>
@@ -723,33 +722,23 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major (To be turned into dropdown menu)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P3c-1K-orQ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lyI-aV-w5t">
                                         <rect key="frame" x="0.0" y="190" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Academic Year (To be turned into dropdown menu)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-06-obK">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Academic Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ub-V2-5u6">
                                         <rect key="frame" x="0.0" y="228" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ0-S7-Ap8">
-                                <rect key="frame" x="137.5" y="372" width="100" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="ogO-LC-shI"/>
+                                    <constraint firstAttribute="height" constant="258" id="8aE-nV-vFq"/>
                                 </constraints>
-                                <state key="normal" title="SIGN UP">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUp:" destination="bEt-za-wE2" eventType="touchUpInside" id="1fl-CA-Aci"/>
-                                </connections>
-                            </button>
+                            </stackView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-hz-vxn">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
@@ -759,36 +748,49 @@
                                                 <action selector="cancel:" destination="bEt-za-wE2" id="1cU-BZ-JRr"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Sign Up" id="6im-7Q-bjz">
+                                            <connections>
+                                                <action selector="signUp:" destination="bEt-za-wE2" id="pOK-LD-iDm"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpR-Zk-b2q">
+                                <rect key="frame" x="16" y="354" width="343" height="297"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IDR-LZ-nZD" firstAttribute="top" secondItem="Rie-hz-vxn" secondAttribute="bottom" constant="25" id="HYe-4e-D4V"/>
+                            <constraint firstItem="IDR-LZ-nZD" firstAttribute="top" secondItem="Rie-hz-vxn" secondAttribute="bottom" constant="16" id="HYe-4e-D4V"/>
                             <constraint firstItem="Rie-hz-vxn" firstAttribute="top" secondItem="2sf-Rd-nAy" secondAttribute="top" id="IOL-Zt-7ev"/>
                             <constraint firstItem="Rie-hz-vxn" firstAttribute="trailing" secondItem="2sf-Rd-nAy" secondAttribute="trailing" id="VTx-ug-1q0"/>
-                            <constraint firstItem="eJ0-S7-Ap8" firstAttribute="top" secondItem="IDR-LZ-nZD" secondAttribute="bottom" constant="25" id="fhS-ih-NdN"/>
+                            <constraint firstItem="hpR-Zk-b2q" firstAttribute="trailing" secondItem="2sf-Rd-nAy" secondAttribute="trailing" constant="-16" id="YqM-gS-uJe"/>
+                            <constraint firstItem="hpR-Zk-b2q" firstAttribute="bottom" secondItem="2sf-Rd-nAy" secondAttribute="bottom" constant="-16" id="g3b-aZ-Agd"/>
                             <constraint firstItem="IDR-LZ-nZD" firstAttribute="leading" secondItem="2sf-Rd-nAy" secondAttribute="leading" constant="16" id="gfn-5u-zAH"/>
                             <constraint firstItem="2sf-Rd-nAy" firstAttribute="trailing" secondItem="IDR-LZ-nZD" secondAttribute="trailing" constant="16" id="kTt-78-abn"/>
+                            <constraint firstItem="hpR-Zk-b2q" firstAttribute="top" secondItem="IDR-LZ-nZD" secondAttribute="bottom" constant="16" id="lSJ-q3-TOH"/>
                             <constraint firstItem="Rie-hz-vxn" firstAttribute="leading" secondItem="2sf-Rd-nAy" secondAttribute="leading" id="nur-dr-Vtt"/>
-                            <constraint firstItem="eJ0-S7-Ap8" firstAttribute="centerX" secondItem="Hax-a6-2H5" secondAttribute="centerX" id="po5-Ne-NFU"/>
+                            <constraint firstItem="hpR-Zk-b2q" firstAttribute="leading" secondItem="2sf-Rd-nAy" secondAttribute="leading" constant="16" id="s82-J8-ZVW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2sf-Rd-nAy"/>
                     </view>
                     <connections>
+                        <outlet property="academicYearTextField" destination="1ub-V2-5u6" id="PIe-5f-Mh9"/>
                         <outlet property="cancelButton" destination="V53-03-6yd" id="PO2-u4-xrY"/>
                         <outlet property="emailTextField" destination="LBX-bz-lxk" id="Y8l-Lg-d5e"/>
                         <outlet property="firstNameTextField" destination="NDo-LR-tFM" id="bOb-XU-4wM"/>
                         <outlet property="idTextField" destination="qFw-lx-cNn" id="ncb-2u-5aV"/>
                         <outlet property="lastNameTextField" destination="HLI-Ao-WSJ" id="Gcq-xB-jVs"/>
+                        <outlet property="majorTextField" destination="lyI-aV-w5t" id="obO-Es-GKm"/>
                         <outlet property="passwordTextField" destination="Clx-N7-C0L" id="Xp1-in-7Vc"/>
-                        <outlet property="signUpButton" destination="eJ0-S7-Ap8" id="c5t-B9-1gI"/>
+                        <outlet property="pickerView" destination="hpR-Zk-b2q" id="wfq-3L-bUz"/>
+                        <outlet property="signUpButton" destination="6im-7Q-bjz" id="LLC-XZ-bM2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6O-2K-SFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="714"/>
+            <point key="canvasLocation" x="40.799999999999997" y="713.79310344827593"/>
         </scene>
     </scenes>
     <resources>

@@ -36,6 +36,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func signUp(_ sender: Any) {
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        
+        navigationController?.navigationBar.isHidden = true
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
