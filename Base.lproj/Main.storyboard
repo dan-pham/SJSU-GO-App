@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ha9-mD-I0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxH-k3-Fdu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sdH-0D-t4b">
             <objects>
-                <navigationController id="ha9-mD-I0S" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginNavController" id="ha9-mD-I0S" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bGa-ek-fJ7">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -43,7 +43,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="crg-Il-Gum">
                                 <rect key="frame" x="16" y="280.5" width="343" height="106"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SJSU ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fpm-nR-fDr">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SJSU Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fpm-nR-fDr">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -101,7 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Gwb-3F-6bN"/>
                     <connections>
-                        <outlet property="idTextField" destination="Fpm-nR-fDr" id="s6d-uD-m8i"/>
+                        <outlet property="emailTextField" destination="Fpm-nR-fDr" id="dNf-xM-hpC"/>
                         <outlet property="logInButton" destination="88Z-P7-g1y" id="UiG-tC-9yp"/>
                         <outlet property="passwordTextField" destination="0de-an-5eI" id="G1G-qi-bA5"/>
                         <outlet property="signUpButton" destination="2Ub-Yn-3p9" id="0TF-GC-n0e"/>
@@ -129,7 +129,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleAspectFit" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qX7-t7-kCv">
-                                <rect key="frame" x="16" y="629" width="343" height="30"/>
+                                <rect key="frame" x="16" y="580" width="343" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have feedback?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNz-8A-MeR">
                                         <rect key="frame" x="0.0" y="5" width="123" height="20.5"/>
@@ -144,13 +144,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the GO Program!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sga-HA-tIT">
-                                <rect key="frame" x="37" y="76" width="301.5" height="29"/>
+                                <rect key="frame" x="37" y="120" width="301.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DYU-nQ-Xiw">
-                                <rect key="frame" x="16" y="121" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="165" width="343" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You currently have: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biC-Pa-avF">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="20.5"/>
@@ -167,13 +167,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMm-MF-zuf">
-                                <rect key="frame" x="16" y="165.5" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="209.5" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yQF-4H-cZw">
-                                <rect key="frame" x="16" y="202" width="343" height="41"/>
+                                <rect key="frame" x="16" y="246" width="343" height="41"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="NQD-PV-MfR">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -212,7 +212,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-rh-GGO">
-                                <rect key="frame" x="16" y="591" width="343" height="30"/>
+                                <rect key="frame" x="16" y="542" width="343" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have questions?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBc-PL-0Hx">
                                         <rect key="frame" x="0.0" y="5" width="126" height="20.5"/>
@@ -349,7 +349,7 @@
         <!--Navigation Controller-->
         <scene sceneID="GG1-Fy-HfM">
             <objects>
-                <navigationController id="nxH-k3-Fdu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="tabBarNavController" id="nxH-k3-Fdu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Ay-QS-hQe">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -365,11 +365,16 @@
         <!--TabBarVC-->
         <scene sceneID="qzs-mf-ByN">
             <objects>
-                <tabBarController title="TabBarVC" id="smi-X4-uVH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" title="TabBarVC" id="smi-X4-uVH" customClass="TabBarViewController" customModule="SJSU_GO_App" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="SJSU GO" id="2am-RK-Fg1">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="gPL-Nd-UlY"/>
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="gPL-Nd-UlY">
+                            <connections>
+                                <action selector="logOut:" destination="smi-X4-uVH" id="7O5-CC-YUc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Event" id="Gpa-aP-n3R">
                             <connections>
+                                <action selector="addEvent:" destination="smi-X4-uVH" id="CbF-DM-IrP"/>
                                 <segue destination="a42-4c-Sgu" kind="presentation" id="rca-iV-MOo"/>
                             </connections>
                         </barButtonItem>
@@ -797,6 +802,6 @@
         <image name="sjsu_go_logo" width="452" height="275"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="z6w-ac-Ntg"/>
+        <segue reference="xTs-1T-U4a"/>
     </inferredMetricsTieBreakers>
 </document>
