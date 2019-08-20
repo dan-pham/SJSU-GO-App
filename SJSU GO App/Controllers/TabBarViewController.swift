@@ -22,7 +22,27 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
             perform(#selector(handleLogOut), with: nil, afterDelay: 0)
         } else {
             print("User successfully logged in")
+            
         }
+    }
+    
+    func reloadViewControllers() {
+        let viewControllers = self.viewControllers
+        
+        for viewController in viewControllers! {
+            viewController.loadView()
+            viewController.viewDidLoad()
+        }
+    }
+    
+    func setupNavTabBars() {
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.tabBar.isTranslucent = false
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        viewController.loadViewIfNeeded()
+        viewController.viewDidLoad()
     }
     
     @IBAction func logOut(_ sender: Any) {
