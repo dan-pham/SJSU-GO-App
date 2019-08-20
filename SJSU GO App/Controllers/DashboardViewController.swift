@@ -21,7 +21,7 @@ class DashboardViewController: UIViewController {
     }
     
     func retrievePointsFromFirebase() {
-        let numberOfPoints = 1
+        let numberOfPoints = 2
         if numberOfPoints == 1 {
             pointsLabel.text = "\(numberOfPoints) point"
         } else {
