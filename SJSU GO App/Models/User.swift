@@ -16,6 +16,7 @@ class User: NSObject {
     var lastName: String?
     var major: String?
     var academicYear: String?
+    var points: Int?
 }
 
 

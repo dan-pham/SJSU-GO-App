@@ -166,6 +166,7 @@ extension EventSubmissionViewController: UIPickerViewDelegate, UIPickerViewDataS
         } else {
             isOtherEventSelected = false
             eventDescriptionTextView.text = eventsWithOtherOption[row].eventDescription
+            adminEvent.points = eventsWithOtherOption[row].points
             eventDescriptionTextView.endEditing(true)
         }
         

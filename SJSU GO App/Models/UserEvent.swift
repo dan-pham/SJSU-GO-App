@@ -10,6 +10,7 @@ import UIKit
 
 class UserEvent: NSObject {
     var user: User?
+    var id: String?
     var title: String?
     var eventType: String?
     var eventDescription: String?
