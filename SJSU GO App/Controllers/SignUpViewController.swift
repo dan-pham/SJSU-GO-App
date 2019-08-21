@@ -79,9 +79,11 @@ class SignUpViewController: UIViewController {
                 return
             }
             
-            let values = ["user_id": uid, "sjsu_id": sjsuId, "sjsu_email": sjsuEmail, "first_name": firstName, "last_name": lastName, "major": major, "academic_year": academicYear]
+            let points = 0
             
-            self.registerUserIntoDatabaseWithUID(uid, values: values as [String : AnyObject])
+            let values = ["user_id": uid, "sjsu_id": sjsuId, "sjsu_email": sjsuEmail, "first_name": firstName, "last_name": lastName, "major": major, "academic_year": academicYear, "points": points] as [String: AnyObject]
+            
+            self.registerUserIntoDatabaseWithUID(uid, values: values)
         }
     }
     

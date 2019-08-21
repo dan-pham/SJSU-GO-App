@@ -11,6 +11,8 @@
 		C3453CE2230C8E88008E2BD4 /* UserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3453CE1230C8E88008E2BD4 /* UserEvent.swift */; };
 		C3453CE4230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3453CE3230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift */; };
 		C3479846225EC00E00C23F6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3479845225EC00E00C23F6B /* LoginViewController.swift */; };
+		C3657FF9230DD4D100C4B141 /* UIImageView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3657FF8230DD4D100C4B141 /* UIImageView+Additions.swift */; };
+		C3657FFB230DD7F500C4B141 /* UserEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3657FFA230DD7F500C4B141 /* UserEventCell.swift */; };
 		C376C67E225E9D8900644468 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C376C67D225E9D8900644468 /* GoogleService-Info.plist */; };
 		C3A7B372230A22D100AC4003 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B371230A22D100AC4003 /* TabBarViewController.swift */; };
 		C3A7B374230A23B400AC4003 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B373230A23B400AC4003 /* DashboardViewController.swift */; };
@@ -32,6 +34,8 @@
 		C3453CE1230C8E88008E2BD4 /* UserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvent.swift; sourceTree = "<group>"; };
 		C3453CE3230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventSubmissionViewController+handlers.swift"; sourceTree = "<group>"; };
 		C3479845225EC00E00C23F6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C3657FF8230DD4D100C4B141 /* UIImageView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Additions.swift"; sourceTree = "<group>"; };
+		C3657FFA230DD7F500C4B141 /* UserEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserEventCell.swift; path = "SJSU GO App/UserEventCell.swift"; sourceTree = SOURCE_ROOT; };
 		C376C67D225E9D8900644468 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3A7B371230A22D100AC4003 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C3A7B373230A23B400AC4003 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 			path = plists;
 			sourceTree = "<group>";
 		};
+		C3657FF7230DD44D00C4B141 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C3D81FC5230BB7C000309F23 /* SampleEvents.swift */,
+				C3657FF8230DD4D100C4B141 /* UIImageView+Additions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C3D08E5D225EA45A0060BB40 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +132,7 @@
 		C3D08E5E225EA4620060BB40 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3657FFA230DD7F500C4B141 /* UserEventCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				C3E9607222387A4D002E19BF /* AppDelegate.swift */,
-				C3D81FC5230BB7C000309F23 /* SampleEvents.swift */,
+				C3657FF7230DD44D00C4B141 /* Helpers */,
 				C3D08E5D225EA45A0060BB40 /* Models */,
 				C3D08E5E225EA4620060BB40 /* Views */,
 				C3D08E5F225EA4680060BB40 /* Controllers */,
@@ -297,6 +311,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3479846225EC00E00C23F6B /* LoginViewController.swift in Sources */,
+				C3657FFB230DD7F500C4B141 /* UserEventCell.swift in Sources */,
+				C3657FF9230DD4D100C4B141 /* UIImageView+Additions.swift in Sources */,
 				C3A7B374230A23B400AC4003 /* DashboardViewController.swift in Sources */,
 				C3453CE2230C8E88008E2BD4 /* UserEvent.swift in Sources */,
 				C3A7B376230A23EF00AC4003 /* PrizeViewViewController.swift in Sources */,

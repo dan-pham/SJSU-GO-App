@@ -137,7 +137,7 @@ class EventSubmissionViewController: UIViewController {
         var values: [String: AnyObject] = ["id": userEvent.id as AnyObject, "user_first_name": userEvent.user?.firstName as AnyObject, "user_last_name": userEvent.user?.lastName as AnyObject, "user_major": userEvent.user?.major as AnyObject, "user_email": userEvent.user?.email as AnyObject, "user_academic_year": userEvent.user?.academicYear as AnyObject, "user_sjsu_id": userEvent.user?.sjsuId as AnyObject, "event_type": userEvent.eventType as AnyObject, "event_description": userEvent.eventDescription as AnyObject, "points": userEvent.points as AnyObject, "is_approved_by_admin": userEvent.isApprovedByAdmin as AnyObject]
         
         // Image attribute
-        let properties: [String: AnyObject] = ["imageUrl": imageUrl as AnyObject]
+        let properties: [String: AnyObject] = ["image_url": imageUrl as AnyObject]
         
         properties.forEach({values[$0] = $1})
         
