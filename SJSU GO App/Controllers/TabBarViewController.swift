@@ -17,6 +17,11 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         checkIfUserIsLoggedIn()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
             perform(#selector(handleLogOut), with: nil, afterDelay: 0)
@@ -62,9 +67,10 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     @IBAction func addEvent(_ sender: Any) {
-        
-        
-        
+        let eventSubmissionVC = storyboard?.instantiateViewController(withIdentifier: "EventSubmissionViewController")
+       
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.pushViewController(eventSubmissionVC!, animated: true)
     }
     
 }

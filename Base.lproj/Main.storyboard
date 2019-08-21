@@ -234,7 +234,7 @@
         <!--EventSubmissionVC-->
         <scene sceneID="FeS-GR-bBb">
             <objects>
-                <viewController title="EventSubmissionVC" id="a42-4c-Sgu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventSubmissionViewController" title="EventSubmissionVC" id="a42-4c-Sgu" customClass="EventSubmissionViewController" customModule="SJSU_GO_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fNu-wq-5l5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,78 +245,115 @@
                                     <navigationItem title="Add Event" id="QFE-4R-qap">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BcG-dr-SDp">
                                             <connections>
-                                                <segue destination="vwo-eH-i1H" kind="presentation" id="z6w-ac-Ntg"/>
+                                                <action selector="cancelEventSubmission:" destination="a42-4c-Sgu" id="XUd-7Y-uhi"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Submit" id="do8-gX-AGN"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Submit" id="do8-gX-AGN">
+                                            <connections>
+                                                <action selector="submitEvent:" destination="a42-4c-Sgu" id="DpW-ma-onv"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your event / experience:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1p-Pt-GDC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your event type and description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1p-Pt-GDC">
                                 <rect key="frame" x="16" y="88" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose (To be turned to dropdown later)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R0K-0v-ilR">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select your event type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R0K-0v-ilR">
                                 <rect key="frame" x="16" y="117" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attach photo/file evidence:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vji-n7-Mqi">
-                                <rect key="frame" x="16" y="163" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attach photo as proof of completion:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vji-n7-Mqi">
+                                <rect key="frame" x="16" y="291" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image 1 Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oru-WU-ipR">
-                                <rect key="frame" x="16" y="200" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File 1 Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJf-Bt-I9k">
-                                <rect key="frame" x="16" y="229" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lqq-5c-nDz">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqq-5c-nDz">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ih7-OP-yjX"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VcL-VL-utD"/>
-                                    <barButtonItem title="File" style="plain" id="nFh-jM-ld3"/>
+                                    <barButtonItem title="Album" style="plain" id="nFh-jM-ld3">
+                                        <connections>
+                                            <action selector="pickImageFromAlbum:" destination="a42-4c-Sgu" id="pKV-ja-yjr"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qPn-fa-PqE"/>
-                                    <barButtonItem systemItem="camera" id="Cib-4d-MSI"/>
+                                    <barButtonItem systemItem="camera" id="Cib-4d-MSI">
+                                        <connections>
+                                            <action selector="takePictureWithCamera:" destination="a42-4c-Sgu" id="yCx-CY-x8X"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bsa-fI-Q1L"/>
                                 </items>
                             </toolbar>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-gn-SRB">
+                                <rect key="frame" x="16" y="423" width="343" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="zfc-gO-VbC"/>
+                                </constraints>
+                            </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="utC-eC-4st">
+                                <rect key="frame" x="16" y="155" width="343" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="a81-wu-Fx4"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nqe-ml-PH2">
+                                <rect key="frame" x="16" y="328" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="44S-aP-faj"/>
+                                    <constraint firstAttribute="height" constant="90" id="ABS-Vf-fwW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rxn-Z3-HQz" firstAttribute="trailing" secondItem="Vji-n7-Mqi" secondAttribute="trailing" constant="16" id="4Gr-3e-Rs6"/>
+                            <constraint firstItem="cxk-gn-SRB" firstAttribute="trailing" secondItem="rxn-Z3-HQz" secondAttribute="trailing" constant="-16" id="7qB-H5-wrw"/>
                             <constraint firstItem="exe-7X-a5n" firstAttribute="top" secondItem="rxn-Z3-HQz" secondAttribute="top" id="E4N-hC-nn4"/>
-                            <constraint firstItem="yJf-Bt-I9k" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" constant="16" id="JMY-l6-mz1"/>
+                            <constraint firstItem="utC-eC-4st" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" constant="16" id="ETO-vq-crj"/>
+                            <constraint firstItem="Lqq-5c-nDz" firstAttribute="bottom" secondItem="rxn-Z3-HQz" secondAttribute="bottom" id="Fuf-Al-IQo"/>
+                            <constraint firstItem="Lqq-5c-nDz" firstAttribute="top" secondItem="cxk-gn-SRB" secondAttribute="bottom" id="GGx-1z-9HC"/>
                             <constraint firstItem="exe-7X-a5n" firstAttribute="trailing" secondItem="rxn-Z3-HQz" secondAttribute="trailing" id="KKD-De-ui5"/>
-                            <constraint firstItem="oru-WU-ipR" firstAttribute="top" secondItem="Vji-n7-Mqi" secondAttribute="bottom" constant="16" id="Kd2-TP-DQ1"/>
                             <constraint firstItem="R0K-0v-ilR" firstAttribute="top" secondItem="L1p-Pt-GDC" secondAttribute="bottom" constant="8" id="Neg-At-QxZ"/>
+                            <constraint firstItem="Lqq-5c-nDz" firstAttribute="trailing" secondItem="rxn-Z3-HQz" secondAttribute="trailing" id="Pic-iF-sua"/>
                             <constraint firstItem="rxn-Z3-HQz" firstAttribute="trailing" secondItem="L1p-Pt-GDC" secondAttribute="trailing" constant="16" id="Zi5-WH-dPo"/>
-                            <constraint firstItem="rxn-Z3-HQz" firstAttribute="trailing" secondItem="yJf-Bt-I9k" secondAttribute="trailing" constant="16" id="chg-fL-rW1"/>
+                            <constraint firstItem="cxk-gn-SRB" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" constant="16" id="aiZ-k5-sQI"/>
                             <constraint firstItem="L1p-Pt-GDC" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" constant="16" id="csD-JY-aF6"/>
-                            <constraint firstItem="yJf-Bt-I9k" firstAttribute="top" secondItem="oru-WU-ipR" secondAttribute="bottom" constant="8" id="eLh-41-VeM"/>
                             <constraint firstItem="Vji-n7-Mqi" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" constant="16" id="g8P-tm-mQc"/>
-                            <constraint firstItem="rxn-Z3-HQz" firstAttribute="trailing" secondItem="oru-WU-ipR" secondAttribute="trailing" constant="16" id="ice-aa-wDr"/>
+                            <constraint firstItem="nqe-ml-PH2" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" constant="16" id="inX-VD-ecY"/>
+                            <constraint firstItem="utC-eC-4st" firstAttribute="top" secondItem="R0K-0v-ilR" secondAttribute="bottom" constant="8" id="jSh-Bh-VCn"/>
+                            <constraint firstItem="Vji-n7-Mqi" firstAttribute="top" secondItem="utC-eC-4st" secondAttribute="bottom" constant="16" id="jlV-NV-4gg"/>
+                            <constraint firstItem="rxn-Z3-HQz" firstAttribute="trailing" secondItem="utC-eC-4st" secondAttribute="trailing" constant="16" id="lJs-1N-a8V"/>
                             <constraint firstItem="rxn-Z3-HQz" firstAttribute="trailing" secondItem="R0K-0v-ilR" secondAttribute="trailing" constant="16" id="n3T-LN-7en"/>
-                            <constraint firstItem="Vji-n7-Mqi" firstAttribute="top" secondItem="R0K-0v-ilR" secondAttribute="bottom" constant="16" id="rnp-9K-jNs"/>
+                            <constraint firstItem="nqe-ml-PH2" firstAttribute="top" secondItem="Vji-n7-Mqi" secondAttribute="bottom" constant="16" id="rEX-m8-PId"/>
+                            <constraint firstItem="Lqq-5c-nDz" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" id="wDl-9M-uIV"/>
                             <constraint firstItem="R0K-0v-ilR" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" constant="16" id="wqq-R2-PD3"/>
                             <constraint firstItem="exe-7X-a5n" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" id="xOh-AJ-slP"/>
-                            <constraint firstItem="oru-WU-ipR" firstAttribute="leading" secondItem="rxn-Z3-HQz" secondAttribute="leading" constant="16" id="xun-xX-U9e"/>
                             <constraint firstItem="L1p-Pt-GDC" firstAttribute="top" secondItem="exe-7X-a5n" secondAttribute="bottom" constant="24" id="zIw-BA-p4O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rxn-Z3-HQz"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="Cib-4d-MSI" id="JeJ-ee-uUH"/>
+                        <outlet property="eventDescriptionTextView" destination="utC-eC-4st" id="NV9-Of-qln"/>
+                        <outlet property="eventTypeTextField" destination="R0K-0v-ilR" id="PQu-TG-c7j"/>
+                        <outlet property="imageView" destination="nqe-ml-PH2" id="PPy-fI-SLk"/>
+                        <outlet property="pickerView" destination="cxk-gn-SRB" id="L5p-gS-2zV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lg2-Su-LIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,7 +388,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Add Event" id="Gpa-aP-n3R">
                             <connections>
                                 <action selector="addEvent:" destination="smi-X4-uVH" id="CbF-DM-IrP"/>
-                                <segue destination="a42-4c-Sgu" kind="presentation" id="rca-iV-MOo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -777,7 +813,4 @@
     <resources>
         <image name="sjsu_go_logo" width="452" height="275"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="xTs-1T-U4a"/>
-    </inferredMetricsTieBreakers>
 </document>
