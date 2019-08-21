@@ -60,10 +60,8 @@ class EventSubmissionViewController: UIViewController {
         let uid = Auth.auth().currentUser!.uid
         let ref = Database.database().reference().child("users").child(uid)
         ref.observeSingleEvent(of: .value) { (snapshot) in
-            print("snapshot: ", snapshot)
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                print("dictionary: ", dictionary)
                 self.user.firstName = dictionary["first_name"] as? String
                 self.user.lastName = dictionary["last_name"] as? String
                 self.user.major = dictionary["major"] as? String
@@ -72,8 +70,6 @@ class EventSubmissionViewController: UIViewController {
                 self.user.sjsuId = dictionary["sjsu_id"] as? String
             }
         }
-        
-        
     }
     
     // To be efficient, maybe only allow user to submit images. User can screenshot proof if necessary
@@ -95,7 +91,6 @@ class EventSubmissionViewController: UIViewController {
             return
         }
         
-        // Post event to Firebase
         let image = imageView.image!
         uploadImageToFirebaseStorage(image) { (imageUrl) in
             self.saveUserEventWithImageUrl(imageUrl)
@@ -131,13 +126,7 @@ class EventSubmissionViewController: UIViewController {
         let childRef = ref.childByAutoId()
         let userId = Auth.auth().currentUser!.uid
         
-        userEvent.user?.firstName = user.firstName
-        userEvent.user?.lastName = user.lastName
-        userEvent.user?.major = user.major
-        userEvent.user?.email = user.email
-        userEvent.user?.academicYear = user.academicYear
-        userEvent.user?.sjsuId = user.sjsuId
-        
+        userEvent.user = user
         userEvent.eventType = eventTypeTextField.text
         userEvent.eventDescription = eventDescriptionTextView.text
         userEvent.points = adminEvent.points
