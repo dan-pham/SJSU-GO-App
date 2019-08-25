@@ -27,7 +27,7 @@ class EventSubmissionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegateTextField()
+        configureTextField()
         configureTextView()
         configureImageView()
         configurePickerView()
