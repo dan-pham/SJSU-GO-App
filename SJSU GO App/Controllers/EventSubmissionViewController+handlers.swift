@@ -11,8 +11,10 @@ import UIKit
 // MARK: - UITextFieldDelegate
 
 extension EventSubmissionViewController: UITextFieldDelegate {
-    func delegateTextField() {
+    func configureTextField() {
         eventTypeTextField.delegate = self
+        eventTypeTextField.textColor = UIColor.lightGray
+        eventTypeTextField.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     func clearTextField() {
@@ -42,43 +44,9 @@ extension EventSubmissionViewController: UITextViewDelegate {
         eventDescriptionTextView.delegate = self
         eventDescriptionTextView.text = "Enter event description..."
         eventDescriptionTextView.textColor = UIColor.lightGray
-        addBorderLinesToTextView()
-    }
-    
-    func addBorderLinesToTextView() {
-        let topLineView = UIView()
-        configureLineView(lineView: topLineView)
-        topLineView.leftAnchor.constraint(equalTo: eventDescriptionTextView.leftAnchor).isActive = true
-        topLineView.bottomAnchor.constraint(equalTo: eventDescriptionTextView.topAnchor).isActive = true
-        topLineView.widthAnchor.constraint(equalTo: eventDescriptionTextView.widthAnchor).isActive = true
-        topLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        
-        let bottomLineView = UIView()
-        configureLineView(lineView: bottomLineView)
-        bottomLineView.leftAnchor.constraint(equalTo: eventDescriptionTextView.leftAnchor).isActive = true
-        bottomLineView.topAnchor.constraint(equalTo: eventDescriptionTextView.bottomAnchor).isActive = true
-        bottomLineView.widthAnchor.constraint(equalTo: eventDescriptionTextView.widthAnchor).isActive = true
-        bottomLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        
-        let leftLineView = UIView()
-        configureLineView(lineView: leftLineView)
-        leftLineView.leftAnchor.constraint(equalTo: eventDescriptionTextView.leftAnchor).isActive = true
-        leftLineView.topAnchor.constraint(equalTo: eventDescriptionTextView.topAnchor).isActive = true
-        leftLineView.widthAnchor.constraint(equalToConstant: 1).isActive = true
-        leftLineView.heightAnchor.constraint(equalTo: eventDescriptionTextView.heightAnchor).isActive = true
-        
-        let rightLineView = UIView()
-        configureLineView(lineView: rightLineView)
-        rightLineView.rightAnchor.constraint(equalTo: eventDescriptionTextView.rightAnchor).isActive = true
-        rightLineView.topAnchor.constraint(equalTo: eventDescriptionTextView.topAnchor).isActive = true
-        rightLineView.widthAnchor.constraint(equalToConstant: 1).isActive = true
-        rightLineView.heightAnchor.constraint(equalTo: eventDescriptionTextView.heightAnchor).isActive = true
-    }
-    
-    func configureLineView(lineView: UIView) {
-        lineView.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
-        lineView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(lineView)
+        eventDescriptionTextView.layer.cornerRadius = 5
+        eventDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+        eventDescriptionTextView.layer.borderWidth = 1
     }
     
     func clearTextView() {

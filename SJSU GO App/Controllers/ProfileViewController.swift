@@ -1,0 +1,150 @@
+//
+//  ProfileViewController.swift
+//  SJSU GO App
+//
+//  Created by Dan Pham on 8/23/19.
+//  Copyright © 2019 Dan Pham. All rights reserved.
+//
+
+import UIKit
+import Firebase
+
+class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var qrCodeScannerButton: UIButton!
+    @IBOutlet weak var pendingEventsButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUserProfile()
+    }
+    
+    func setupUserProfile() {
+        nameLabel.text = "\(TabBarViewController.user.firstName!) \(TabBarViewController.user.lastName!)"
+        configureUserProfileImage()
+    }
+    
+    func configureUserProfileImage() {
+        if let profileImageUrl = TabBarViewController.user.profileImageUrl {
+            profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
+        } else {
+            profileImageView.image = UIImage(named: "profilePlaceholderImage")
+        }
+        
+        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.backgroundColor = .lightGray
+        
+        profileImageView.layer.cornerRadius = 64
+        profileImageView.layer.borderColor = UIColor.black.cgColor
+        profileImageView.layer.borderWidth = 1
+        
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+    }
+    
+    @objc func handleSelectProfileImageView() {
+        let picker = UIImagePickerController()
+        
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func handleUpdateUserProfileImage(image: UIImage) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let imageName = UUID().uuidString
+        let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
+        
+        if let uploadData = image.jpegData(compressionQuality: 0.1) {
+            
+            storageRef.putData(uploadData, metadata: nil) { (_, error) in
+                
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                storageRef.downloadURL(completion: { (url, err) in
+                    if let err = err {
+                        print(err)
+                        return
+                    }
+                    
+                    guard let url = url else {
+                        return
+                    }
+                    
+                    let values = ["profile_image_url": url.absoluteString]
+                    
+                    self.handleUpdateUserProfileImageIntoDatabaseWithURL(uid, values: values as [String : AnyObject])
+                })
+            }
+        }
+    }
+    
+    func handleUpdateUserProfileImageIntoDatabaseWithURL(_ uid: String, values: [String: AnyObject]) {
+        
+        let ref = Database.database().reference()
+        let userReference = ref.child("users").child(uid)
+        userReference.updateChildValues(values) { (err, ref) in
+            
+            if let err = err {
+                print(err)
+                return
+            }
+
+        }
+    }
+    
+    @IBAction func openQRCodeScanner(_ sender: Any) {
+        let qrCodeScannerVC = storyboard?.instantiateViewController(withIdentifier: "QRCodeScannerViewController")
+        
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.pushViewController(qrCodeScannerVC!, animated: true)
+    }
+    
+    @IBAction func openPendingEvents(_ sender: Any) {
+        let pendingEventsVC = storyboard?.instantiateViewController(withIdentifier: "PendingEventsViewController")
+        
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.pushViewController(pendingEventsVC!, animated: true)
+    }
+    
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var selectedImageFromPicker: UIImage?
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            profileImageView.image = selectedImage
+            handleUpdateUserProfileImage(image: selectedImage)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+        return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+    }
+    
+}

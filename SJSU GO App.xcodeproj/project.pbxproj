@@ -26,6 +26,9 @@
 		C3E9607822387A4D002E19BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E9607622387A4D002E19BF /* Main.storyboard */; };
 		C3E9607A22387A4F002E19BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E9607922387A4F002E19BF /* Assets.xcassets */; };
 		C3E9607D22387A4F002E19BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E9607B22387A4F002E19BF /* LaunchScreen.storyboard */; };
+		C3ECE7122310B53E00FED0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECE7112310B53E00FED0BC /* ProfileViewController.swift */; };
+		C3ECE7142310BC3100FED0BC /* PendingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECE7132310BC3100FED0BC /* PendingEventsViewController.swift */; };
+		C3ECE7162310BC7500FED0BC /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECE7152310BC7500FED0BC /* QRCodeScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		C3E9607922387A4F002E19BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3E9607C22387A4F002E19BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3E9607E22387A4F002E19BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3ECE7112310B53E00FED0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C3ECE7132310BC3100FED0BC /* PendingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingEventsViewController.swift; sourceTree = "<group>"; };
+		C3ECE7152310BC7500FED0BC /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
 		CA1DB7B20E31F553BC8D8916 /* Pods-SJSU GO App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.debug.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +153,9 @@
 				C3D81FC3230B936B00309F23 /* EventSubmissionViewController.swift */,
 				C3453CE3230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift */,
 				C3A7B375230A23EF00AC4003 /* PrizeViewViewController.swift */,
+				C3ECE7112310B53E00FED0BC /* ProfileViewController.swift */,
+				C3ECE7132310BC3100FED0BC /* PendingEventsViewController.swift */,
+				C3ECE7152310BC7500FED0BC /* QRCodeScannerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,13 +326,16 @@
 				C3453CE2230C8E88008E2BD4 /* UserEvent.swift in Sources */,
 				C3A7B376230A23EF00AC4003 /* PrizeViewViewController.swift in Sources */,
 				C3D81FC4230B936B00309F23 /* EventSubmissionViewController.swift in Sources */,
+				C3ECE7162310BC7500FED0BC /* QRCodeScannerViewController.swift in Sources */,
 				C3D81FC8230BB7E600309F23 /* AdminEvent.swift in Sources */,
 				C3E9607522387A4D002E19BF /* SignUpViewController.swift in Sources */,
 				C3E9607322387A4D002E19BF /* AppDelegate.swift in Sources */,
 				C3453CE4230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift in Sources */,
 				C3A7B372230A22D100AC4003 /* TabBarViewController.swift in Sources */,
+				C3ECE7122310B53E00FED0BC /* ProfileViewController.swift in Sources */,
 				C3D81FC6230BB7C000309F23 /* SampleEvents.swift in Sources */,
 				C3C86B792304DAA900F87A80 /* User.swift in Sources */,
+				C3ECE7142310BC3100FED0BC /* PendingEventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,8 @@ import Firebase
 
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
+    static var user = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self

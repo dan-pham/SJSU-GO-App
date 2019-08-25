@@ -9,6 +9,7 @@
 import UIKit
 
 class AdminEvent: NSObject {
+    var id: String?
     var title: String?
     var eventType: String?
     var eventDescription: String?

@@ -24,6 +24,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         observeUserEvents()
+        passUserInfoToTabBarViewController()
     }
     
     func setupTableView() {
@@ -41,7 +42,7 @@ class DashboardViewController: UIViewController {
             return
         }
         
-        retrievePointsFromFirebase(uid: uid)
+        retrieveUserDetailsFromFirebase(uid: uid)
         
         let ref = Database.database().reference().child("user_events").child(uid)
         ref.observe(.childAdded, with: { (snapshot) in
@@ -56,8 +57,8 @@ class DashboardViewController: UIViewController {
         let eventReference = Database.database().reference().child("events").child(eventId)
         eventReference.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.createUserFromDictionary(dictionary)
                 let event = self.createEventFromDictionary(dictionary)
-                
                 self.eventsDictionary[eventId] = event
                 self.handleReloadTable()
             }
@@ -66,17 +67,9 @@ class DashboardViewController: UIViewController {
     
     func createEventFromDictionary(_ dictionary: [String: AnyObject]) -> UserEvent {
         let event = UserEvent()
-        let tempUser = User()
         var imageUrl = String()
         
-        tempUser.firstName = dictionary["user_first_name"] as? String
-        tempUser.lastName = dictionary["user_last_name"] as? String
-        tempUser.major = dictionary["user_major"] as? String
-        tempUser.academicYear = dictionary["user_academic_year"] as? String
-        tempUser.email = dictionary["user_email"] as? String
-        tempUser.sjsuId = dictionary["user_sjsu_id"] as? String
-        event.user = tempUser
-        
+        event.user = user
         event.id = dictionary["id"] as? String
         event.eventType = dictionary["event_type"] as? String
         event.eventDescription = dictionary["event_description"] as? String
@@ -92,6 +85,15 @@ class DashboardViewController: UIViewController {
         return event
     }
     
+    func createUserFromDictionary(_ dictionary: [String: AnyObject]) {
+        user.firstName = dictionary["user_first_name"] as? String
+        user.lastName = dictionary["user_last_name"] as? String
+        user.major = dictionary["user_major"] as? String
+        user.academicYear = dictionary["user_academic_year"] as? String
+        user.email = dictionary["user_email"] as? String
+        user.sjsuId = dictionary["user_sjsu_id"] as? String
+    }
+    
     func handleReloadTable() {
         self.events = Array(self.eventsDictionary.values)
         self.events.sort { (event1, event2) -> Bool in
@@ -103,22 +105,33 @@ class DashboardViewController: UIViewController {
         }
     }
     
-    func retrievePointsFromFirebase(uid: String) {
+    func retrieveUserDetailsFromFirebase(uid: String) {
         let userReference = Database.database().reference().child("users").child(uid)
         userReference.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.user.points = dictionary["points"] as? Int
-                self.updateUserPoints(points: self.user.points ?? 0)
+                if let points = dictionary["points"] as? Int {
+                    self.updateUserPoints(points: points)
+                }
+                
+                if let profileImageUrl = dictionary["profile_image_url"] as? String {
+                    self.user.profileImageUrl = profileImageUrl
+                }
             }
         }, withCancel: nil)
     }
     
     func updateUserPoints(points: Int) {
+        user.points = points
+        
         if points == 1 {
             pointsLabel.text = "\(points) point"
         } else {
             pointsLabel.text = "\(points) points"
         }
+    }
+    
+    func passUserInfoToTabBarViewController() {
+        TabBarViewController.user = user
     }
     
     @IBAction func openFAQInSafari(_ sender: Any) {
