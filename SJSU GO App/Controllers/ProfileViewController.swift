@@ -6,6 +6,7 @@
 //  Copyright © 2019 Dan Pham. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Firebase
 
@@ -13,17 +14,27 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var qrCodeImageView: UIImageView!
+    
     @IBOutlet weak var qrCodeScannerButton: UIButton!
     @IBOutlet weak var pendingEventsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUserProfile()
+        checkDeviceForCamera()
     }
     
     func setupUserProfile() {
-        nameLabel.text = "\(TabBarViewController.user.firstName!) \(TabBarViewController.user.lastName!)"
+        configureUserName()
         configureUserProfileImage()
+        configureUserQRCode()
+    }
+    
+    func configureUserName() {
+        if let firstName = TabBarViewController.user.firstName, let lastName = TabBarViewController.user.lastName {
+            nameLabel.text = "\(firstName) \(lastName)"
+        }
     }
     
     func configureUserProfileImage() {
@@ -100,6 +111,32 @@ class ProfileViewController: UIViewController {
             }
 
         }
+    }
+    
+    // TODO: Test QR code generator on iPhone
+    func configureUserQRCode() {
+        if let sjsuId = TabBarViewController.user.sjsuId {
+            print("sjsuId going into QR code: ", sjsuId)
+            
+            let data = sjsuId.data(using: .isoLatin1, allowLossyConversion: false)
+            
+            let filter = CIFilter(name: "CIQRCodeGenerator")
+            filter?.setValue(data, forKey: "inputMessage")
+            
+            let ciImage = filter?.outputImage
+            
+            let affineTransform = CGAffineTransform(scaleX: 10, y: 10)
+            let transformedImage = ciImage?.transformed(by: affineTransform)
+            
+            let qrCodeImage = UIImage(ciImage: transformedImage!)
+            
+            qrCodeImageView.image = qrCodeImage
+        }
+    }
+    
+    func checkDeviceForCamera() {
+        qrCodeScannerButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        qrCodeScannerButton.backgroundColor = qrCodeScannerButton.isEnabled ? UIColor.blue : UIColor.lightGray
     }
     
     @IBAction func openQRCodeScanner(_ sender: Any) {
