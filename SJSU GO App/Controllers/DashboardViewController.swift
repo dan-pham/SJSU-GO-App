@@ -57,7 +57,7 @@ class DashboardViewController: UIViewController {
         let eventReference = Database.database().reference().child("events").child(eventId)
         eventReference.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.createUserFromDictionary(dictionary)
+//                self.createUserFromDictionary(dictionary)
                 let event = self.createEventFromDictionary(dictionary)
                 self.eventsDictionary[eventId] = event
                 self.handleReloadTable()
@@ -85,15 +85,6 @@ class DashboardViewController: UIViewController {
         return event
     }
     
-    func createUserFromDictionary(_ dictionary: [String: AnyObject]) {
-        user.firstName = dictionary["user_first_name"] as? String
-        user.lastName = dictionary["user_last_name"] as? String
-        user.major = dictionary["user_major"] as? String
-        user.academicYear = dictionary["user_academic_year"] as? String
-        user.email = dictionary["user_email"] as? String
-        user.sjsuId = dictionary["user_sjsu_id"] as? String
-    }
-    
     func handleReloadTable() {
         self.events = Array(self.eventsDictionary.values)
         self.events.sort { (event1, event2) -> Bool in
@@ -109,6 +100,8 @@ class DashboardViewController: UIViewController {
         let userReference = Database.database().reference().child("users").child(uid)
         userReference.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.createUserFromDictionary(dictionary)
+                
                 if let points = dictionary["points"] as? Int {
                     self.updateUserPoints(points: points)
                 }
@@ -118,6 +111,15 @@ class DashboardViewController: UIViewController {
                 }
             }
         }, withCancel: nil)
+    }
+    
+    func createUserFromDictionary(_ dictionary: [String: AnyObject]) {
+        user.firstName = dictionary["first_name"] as? String
+        user.lastName = dictionary["last_name"] as? String
+        user.major = dictionary["major"] as? String
+        user.academicYear = dictionary["academic_year"] as? String
+        user.email = dictionary["sjsu_email"] as? String
+        user.sjsuId = dictionary["sjsu_id"] as? String
     }
     
     func updateUserPoints(points: Int) {

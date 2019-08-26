@@ -510,10 +510,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I3a-Gr-lXK">
+                                <rect key="frame" x="87.5" y="354" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="B9q-B8-KfC"/>
+                                    <constraint firstAttribute="width" constant="200" id="Mgg-Ri-D37"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="KGo-yl-IxL" firstAttribute="leading" secondItem="o1c-9X-HfW" secondAttribute="leading" constant="16" id="1Gb-yN-fwY"/>
+                            <constraint firstItem="I3a-Gr-lXK" firstAttribute="centerX" secondItem="LZz-cK-EVo" secondAttribute="centerX" id="F6i-2c-OiG"/>
+                            <constraint firstItem="o1c-9X-HfW" firstAttribute="bottom" secondItem="I3a-Gr-lXK" secondAttribute="bottom" constant="64" id="Gp7-U7-QV4"/>
                             <constraint firstItem="SkR-c5-WX5" firstAttribute="top" secondItem="o1c-9X-HfW" secondAttribute="top" constant="16" id="JDA-C8-DFq"/>
                             <constraint firstAttribute="trailing" secondItem="KGo-yl-IxL" secondAttribute="trailing" constant="16" id="Mn0-Ec-E7a"/>
                             <constraint firstItem="KGo-yl-IxL" firstAttribute="top" secondItem="JhR-ti-Zkw" secondAttribute="bottom" constant="16" id="Y9m-LP-po5"/>
@@ -528,6 +537,7 @@
                         <outlet property="nameLabel" destination="JhR-ti-Zkw" id="87Z-xv-Dm4"/>
                         <outlet property="pendingEventsButton" destination="01d-WZ-TCu" id="Xrb-l9-cfH"/>
                         <outlet property="profileImageView" destination="SkR-c5-WX5" id="KF0-Qj-Wtp"/>
+                        <outlet property="qrCodeImageView" destination="I3a-Gr-lXK" id="vXe-Og-icr"/>
                         <outlet property="qrCodeScannerButton" destination="ov4-ox-fp6" id="vEx-U9-wlh"/>
                     </connections>
                 </viewController>
