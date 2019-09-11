@@ -57,7 +57,6 @@ class DashboardViewController: UIViewController {
         let eventReference = Database.database().reference().child("events").child(eventId)
         eventReference.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-//                self.createUserFromDictionary(dictionary)
                 let event = self.createEventFromDictionary(dictionary)
                 self.eventsDictionary[eventId] = event
                 self.handleReloadTable()
