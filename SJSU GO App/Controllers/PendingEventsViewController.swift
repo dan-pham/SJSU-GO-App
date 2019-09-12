@@ -21,7 +21,7 @@ class PendingEventsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // TODO: Need to fix translucency problems
-        self.navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     override func viewDidLoad() {
@@ -68,6 +68,8 @@ class PendingEventsViewController: UIViewController {
         let event = UserEvent()
         var imageUrl = String()
         
+        createUserFromDictionary(dictionary)
+        
         event.user = user
         event.id = dictionary["id"] as? String
         event.eventType = dictionary["event_type"] as? String
@@ -82,6 +84,14 @@ class PendingEventsViewController: UIViewController {
         event.image = imageView.image
         
         return event
+    }
+    
+    func createUserFromDictionary(_ dictionary: [String: AnyObject]) {
+        user.firstName = dictionary["user_first_name"] as? String
+        user.lastName = dictionary["user_last_name"] as? String
+        user.major = dictionary["user_major"] as? String
+        user.academicYear = dictionary["user_academic_year"] as? String
+        user.sjsuId = dictionary["user_sjsu_id"] as? String
     }
     
     func handleReloadTable() {
@@ -122,9 +132,12 @@ extension PendingEventsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Open a detail view and pass in information for the event
-        // Maybe reference TabBarViewController.presentDetailVC() in animetracker
-        print("Selected event at indexPath: ", indexPath)
+        let detailVC = storyboard?.instantiateViewController(withIdentifier: "PendingEventDetailViewController") as! PendingEventDetailViewController
+        let event = pendingEvents[indexPath.item]
+        
+        detailVC.event = event
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }
