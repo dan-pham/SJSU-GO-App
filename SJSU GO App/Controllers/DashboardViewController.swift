@@ -179,9 +179,12 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Open a detail view and pass in information for the event
-        // Maybe reference TabBarViewController.presentDetailVC() in animetracker
-        print("Selected event at indexPath: ", indexPath)
+        let detailVC = storyboard?.instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+        let event = events[indexPath.item]
+        
+        detailVC.event = event
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 
 }
