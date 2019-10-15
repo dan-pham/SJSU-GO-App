@@ -12,11 +12,8 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
-    // MARK: Properties
-    
-    
     // MARK: Outlets
-    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField! // Change to email
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
@@ -25,18 +22,60 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        delegateTextFields()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        clearTextFields()
     }
     
     // MARK: Actions
     
     @IBAction func logIn(_ sender: Any) {
         
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            print("Log in failed")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            
+            if let error = error {
+                print("Error signing in: ", error)
+                return
+            }
+            
+            let tabBarNavController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarNavController")
+            self.present(tabBarNavController!, animated: true)
+        }
+        
     }
     
     @IBAction func signUp(_ sender: Any) {
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        
+        navigationController?.navigationBar.isHidden = true
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
 }
+
+// MARK: - UITextFieldDelegate
+
+extension LoginViewController: UITextFieldDelegate {
+    func delegateTextFields() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    func clearTextFields() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+}
+
