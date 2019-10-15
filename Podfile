@@ -6,10 +6,8 @@ target 'SJSU GO App' do
   use_frameworks!
 
   # Pods for SJSU GO App
-  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
-  pod 'Firebase/RemoteConfig'
-  pod 'FirebaseUI'
 
 end
