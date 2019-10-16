@@ -17,7 +17,6 @@
 		C3A7B372230A22D100AC4003 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B371230A22D100AC4003 /* TabBarViewController.swift */; };
 		C3A7B374230A23B400AC4003 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B373230A23B400AC4003 /* DashboardViewController.swift */; };
 		C3A7B376230A23EF00AC4003 /* PrizeViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B375230A23EF00AC4003 /* PrizeViewViewController.swift */; };
-		C3C6872A2329FA710098663D /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C687292329FA710098663D /* Alerts.swift */; };
 		C3C86B792304DAA900F87A80 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C86B782304DAA900F87A80 /* User.swift */; };
 		C3D81FC4230B936B00309F23 /* EventSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D81FC3230B936B00309F23 /* EventSubmissionViewController.swift */; };
 		C3D81FC6230BB7C000309F23 /* SampleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D81FC5230BB7C000309F23 /* SampleEvents.swift */; };
@@ -30,8 +29,15 @@
 		C3ECE7122310B53E00FED0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECE7112310B53E00FED0BC /* ProfileViewController.swift */; };
 		C3ECE7142310BC3100FED0BC /* PendingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECE7132310BC3100FED0BC /* PendingEventsViewController.swift */; };
 		C3ECE7162310BC7500FED0BC /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECE7152310BC7500FED0BC /* QRCodeScannerViewController.swift */; };
-		C3F074F723297EFA00B0634B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F074F623297EFA00B0634B /* EventDetailViewController.swift */; };
-		C3F074F92329A33600B0634B /* PendingEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F074F82329A33600B0634B /* PendingEventDetailViewController.swift */; };
+		F519BABE2341702800A53068 /* OtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519BABC2341702800A53068 /* OtherCell.swift */; };
+		F519BABF2341702800A53068 /* OtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F519BABD2341702800A53068 /* OtherCell.xib */; };
+		F519BAC12341810300A53068 /* OrderPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519BAC02341810300A53068 /* OrderPopUpViewController.swift */; };
+		F546D123232A0F2F00C493FA /* prizemodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F546D121232A0F2F00C493FA /* prizemodel.swift */; };
+		F5D5D7F1232C65AF0034568F /* PrizeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5D7F0232C65AF0034568F /* PrizeTableViewController.swift */; };
+		F5D5D7F4232C7A8C0034568F /* clothingPrizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5D7F2232C7A8C0034568F /* clothingPrizeCell.swift */; };
+		F5D5D7F5232C7A8C0034568F /* clothingPrizeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D7F3232C7A8C0034568F /* clothingPrizeCell.xib */; };
+		F5D5D7F8232C83D80034568F /* TierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5D7F6232C83D80034568F /* TierCell.swift */; };
+		F5D5D7F9232C83D80034568F /* TierCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D7F7232C83D80034568F /* TierCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +52,6 @@
 		C3A7B371230A22D100AC4003 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C3A7B373230A23B400AC4003 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		C3A7B375230A23EF00AC4003 /* PrizeViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeViewViewController.swift; sourceTree = "<group>"; };
-		C3C687292329FA710098663D /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		C3C86B782304DAA900F87A80 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C3D81FC3230B936B00309F23 /* EventSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSubmissionViewController.swift; sourceTree = "<group>"; };
 		C3D81FC5230BB7C000309F23 /* SampleEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEvents.swift; sourceTree = "<group>"; };
@@ -61,9 +66,16 @@
 		C3ECE7112310B53E00FED0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C3ECE7132310BC3100FED0BC /* PendingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingEventsViewController.swift; sourceTree = "<group>"; };
 		C3ECE7152310BC7500FED0BC /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
-		C3F074F623297EFA00B0634B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
-		C3F074F82329A33600B0634B /* PendingEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingEventDetailViewController.swift; sourceTree = "<group>"; };
 		CA1DB7B20E31F553BC8D8916 /* Pods-SJSU GO App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.debug.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.debug.xcconfig"; sourceTree = "<group>"; };
+		F519BABC2341702800A53068 /* OtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
+		F519BABD2341702800A53068 /* OtherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherCell.xib; sourceTree = "<group>"; };
+		F519BAC02341810300A53068 /* OrderPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPopUpViewController.swift; sourceTree = "<group>"; };
+		F546D121232A0F2F00C493FA /* prizemodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prizemodel.swift; sourceTree = "<group>"; };
+		F5D5D7F0232C65AF0034568F /* PrizeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeTableViewController.swift; sourceTree = "<group>"; };
+		F5D5D7F2232C7A8C0034568F /* clothingPrizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothingPrizeCell.swift; sourceTree = "<group>"; };
+		F5D5D7F3232C7A8C0034568F /* clothingPrizeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = clothingPrizeCell.xib; sourceTree = "<group>"; };
+		F5D5D7F6232C83D80034568F /* TierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierCell.swift; sourceTree = "<group>"; };
+		F5D5D7F7232C83D80034568F /* TierCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TierCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +139,6 @@
 			children = (
 				C3D81FC5230BB7C000309F23 /* SampleEvents.swift */,
 				C3657FF8230DD4D100C4B141 /* UIImageView+Additions.swift */,
-				C3C687292329FA710098663D /* Alerts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 				C3C86B782304DAA900F87A80 /* User.swift */,
 				C3D81FC7230BB7E600309F23 /* AdminEvent.swift */,
 				C3453CE1230C8E88008E2BD4 /* UserEvent.swift */,
+				F546D121232A0F2F00C493FA /* prizemodel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +158,12 @@
 			isa = PBXGroup;
 			children = (
 				C3657FFA230DD7F500C4B141 /* UserEventCell.swift */,
+				F5D5D7F2232C7A8C0034568F /* clothingPrizeCell.swift */,
+				F5D5D7F3232C7A8C0034568F /* clothingPrizeCell.xib */,
+				F5D5D7F7232C83D80034568F /* TierCell.xib */,
+				F5D5D7F6232C83D80034568F /* TierCell.swift */,
+				F519BABC2341702800A53068 /* OtherCell.swift */,
+				F519BABD2341702800A53068 /* OtherCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,18 +171,18 @@
 		C3D08E5F225EA4680060BB40 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F519BAC02341810300A53068 /* OrderPopUpViewController.swift */,
 				C3479845225EC00E00C23F6B /* LoginViewController.swift */,
 				C3E9607422387A4D002E19BF /* SignUpViewController.swift */,
 				C3A7B371230A22D100AC4003 /* TabBarViewController.swift */,
 				C3A7B373230A23B400AC4003 /* DashboardViewController.swift */,
-				C3F074F623297EFA00B0634B /* EventDetailViewController.swift */,
 				C3D81FC3230B936B00309F23 /* EventSubmissionViewController.swift */,
 				C3453CE3230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift */,
 				C3A7B375230A23EF00AC4003 /* PrizeViewViewController.swift */,
+				F5D5D7F0232C65AF0034568F /* PrizeTableViewController.swift */,
 				C3ECE7112310B53E00FED0BC /* ProfileViewController.swift */,
 				C3ECE7132310BC3100FED0BC /* PendingEventsViewController.swift */,
 				C3ECE7152310BC7500FED0BC /* QRCodeScannerViewController.swift */,
-				C3F074F82329A33600B0634B /* PendingEventDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,9 +281,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F519BABF2341702800A53068 /* OtherCell.xib in Resources */,
 				C3E9607D22387A4F002E19BF /* LaunchScreen.storyboard in Resources */,
 				C376C67E225E9D8900644468 /* GoogleService-Info.plist in Resources */,
 				C3E9607A22387A4F002E19BF /* Assets.xcassets in Resources */,
+				F5D5D7F9232C83D80034568F /* TierCell.xib in Resources */,
+				F5D5D7F5232C7A8C0034568F /* clothingPrizeCell.xib in Resources */,
 				C3E9607822387A4D002E19BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,20 +355,23 @@
 				C3A7B374230A23B400AC4003 /* DashboardViewController.swift in Sources */,
 				C3453CE2230C8E88008E2BD4 /* UserEvent.swift in Sources */,
 				C3A7B376230A23EF00AC4003 /* PrizeViewViewController.swift in Sources */,
-				C3C6872A2329FA710098663D /* Alerts.swift in Sources */,
 				C3D81FC4230B936B00309F23 /* EventSubmissionViewController.swift in Sources */,
 				C3ECE7162310BC7500FED0BC /* QRCodeScannerViewController.swift in Sources */,
 				C3D81FC8230BB7E600309F23 /* AdminEvent.swift in Sources */,
 				C3E9607522387A4D002E19BF /* SignUpViewController.swift in Sources */,
 				C3E9607322387A4D002E19BF /* AppDelegate.swift in Sources */,
 				C3453CE4230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift in Sources */,
-				C3F074F723297EFA00B0634B /* EventDetailViewController.swift in Sources */,
+				F546D123232A0F2F00C493FA /* prizemodel.swift in Sources */,
+				F5D5D7F8232C83D80034568F /* TierCell.swift in Sources */,
 				C3A7B372230A22D100AC4003 /* TabBarViewController.swift in Sources */,
 				C3ECE7122310B53E00FED0BC /* ProfileViewController.swift in Sources */,
 				C3D81FC6230BB7C000309F23 /* SampleEvents.swift in Sources */,
-				C3F074F92329A33600B0634B /* PendingEventDetailViewController.swift in Sources */,
+				F5D5D7F4232C7A8C0034568F /* clothingPrizeCell.swift in Sources */,
 				C3C86B792304DAA900F87A80 /* User.swift in Sources */,
+				F5D5D7F1232C65AF0034568F /* PrizeTableViewController.swift in Sources */,
+				F519BABE2341702800A53068 /* OtherCell.swift in Sources */,
 				C3ECE7142310BC3100FED0BC /* PendingEventsViewController.swift in Sources */,
+				F519BAC12341810300A53068 /* OrderPopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

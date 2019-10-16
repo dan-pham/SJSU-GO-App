@@ -12,13 +12,12 @@ import AVFoundation
 
 class QRCodeScannerViewController: UIViewController {
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
     var video = AVCaptureVideoPreviewLayer()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // TODO: Need to fix translucency problems
-        navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     override func viewDidLoad() {
@@ -34,7 +33,7 @@ class QRCodeScannerViewController: UIViewController {
         defineMetadataOutput(session: session)
         defineVideoPreviewLayer(session: session)
         
-        self.view.bringSubviewToFront(navigationBar)
+//        self.view.bringSubviewToFront(navigationController!.navigationBar)
         
         session.startRunning()
     }
@@ -95,7 +94,7 @@ extension QRCodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Approve User", style: .default, handler: { (alertAction) in
             
-            // TODO: Add event ID and approve user event in firebase
+            // TODO: Approve user event in firebase
             print("Approve user event in firebase")
             
         }))

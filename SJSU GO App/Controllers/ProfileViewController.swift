@@ -19,7 +19,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var qrCodeScannerButton: UIButton!
     @IBOutlet weak var pendingEventsButton: UIButton!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         setupUserProfile()
         checkDeviceForCamera()

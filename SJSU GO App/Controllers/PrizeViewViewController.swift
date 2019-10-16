@@ -6,4 +6,29 @@
 //  Copyright © 2019 Dan Pham. All rights reserved.
 //
 
-import Foundation
+import  UIKit
+
+
+
+class PrizeViewViewController: UIViewController {
+
+    
+    
+
+    
+    
+    
+    override func viewDidLoad()
+    {
+        /*
+        Tier1Table.isHidden = true
+        
+        }
+    
+    
+
+    
+}
+ */
+}
+}
