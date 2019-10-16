@@ -57,6 +57,7 @@ class DashboardViewController: UIViewController {
         let eventReference = Database.database().reference().child("events").child(eventId)
         eventReference.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
+//                self.createUserFromDictionary(dictionary)
                 let event = self.createEventFromDictionary(dictionary)
                 self.eventsDictionary[eventId] = event
                 self.handleReloadTable()
@@ -179,12 +180,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = storyboard?.instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
-        let event = events[indexPath.item]
-        
-        detailVC.event = event
-        
-        navigationController?.pushViewController(detailVC, animated: true)
+        // Open a detail view and pass in information for the event
+        // Maybe reference TabBarViewController.presentDetailVC() in animetracker
+        print("Selected event at indexPath: ", indexPath)
     }
 
 }

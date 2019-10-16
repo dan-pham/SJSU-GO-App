@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="KGk-i7-Jjw" customClass="OtherCell" customModule="SJSU_GO_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbx-Kb-6sy">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="6Ye-8B-w45"/>
+                            <constraint firstAttribute="width" constant="150" id="PCE-JS-g0O"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpJ-2v-VM1">
+                        <rect key="frame" x="150" y="0.0" width="150" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="JOn-pD-S46"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vS4-df-bz7">
+                        <rect key="frame" x="150" y="99" width="150" height="50"/>
+                        <color key="backgroundColor" red="0.76130943380000005" green="0.97910052830000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="GnE-Ya-gOT"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ftw-ro-8WF"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="jRY-LM-11b"/>
+                            <constraint firstAttribute="width" constant="150" id="klA-V0-5he"/>
+                        </constraints>
+                        <state key="normal" title="Claim"/>
+                        <connections>
+                            <action selector="Claim:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NNN-hh-4Sn"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hbx-Kb-6sy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4Ab-qK-6IO"/>
+                    <constraint firstAttribute="bottom" secondItem="hbx-Kb-6sy" secondAttribute="bottom" id="85k-hA-uDY"/>
+                    <constraint firstAttribute="bottom" secondItem="vS4-df-bz7" secondAttribute="bottom" id="H0f-NE-Bx8"/>
+                    <constraint firstItem="UpJ-2v-VM1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Htf-ok-MCp"/>
+                    <constraint firstAttribute="bottom" secondItem="vS4-df-bz7" secondAttribute="bottom" id="LEK-qr-CRD"/>
+                    <constraint firstItem="vS4-df-bz7" firstAttribute="top" secondItem="UpJ-2v-VM1" secondAttribute="bottom" constant="78" id="O1H-9H-UBJ"/>
+                    <constraint firstAttribute="trailing" secondItem="vS4-df-bz7" secondAttribute="trailing" id="Rzl-p2-dBh"/>
+                    <constraint firstItem="vS4-df-bz7" firstAttribute="leading" secondItem="hbx-Kb-6sy" secondAttribute="trailing" id="knx-vX-Y1w"/>
+                    <constraint firstAttribute="trailing" secondItem="UpJ-2v-VM1" secondAttribute="trailing" id="tPV-ts-uOy"/>
+                    <constraint firstItem="hbx-Kb-6sy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uXa-wB-EF1"/>
+                    <constraint firstItem="UpJ-2v-VM1" firstAttribute="leading" secondItem="hbx-Kb-6sy" secondAttribute="trailing" id="ut9-MO-UYy"/>
+                    <constraint firstAttribute="trailing" secondItem="vS4-df-bz7" secondAttribute="trailing" id="vpU-8c-gxs"/>
+                    <constraint firstItem="vS4-df-bz7" firstAttribute="leading" secondItem="hbx-Kb-6sy" secondAttribute="trailing" id="ynf-Wr-H3v"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="claimButton" destination="vS4-df-bz7" id="8r5-gC-hEw"/>
+                <outlet property="name" destination="UpJ-2v-VM1" id="dGF-AW-f4n"/>
+                <outlet property="prizeImage" destination="hbx-Kb-6sy" id="Hbf-z3-xUg"/>
+            </connections>
+            <point key="canvasLocation" x="150.72463768115944" y="101.78571428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
