@@ -26,7 +26,7 @@ class EventDetailViewController: UIViewController {
     }
     
     func setupEventDetails() {
-        eventStatusLabel.text = "\(event.isApprovedByAdmin!)"
+        eventStatusLabel.text = event.isApprovedByAdmin
         eventTypeLabel.text = event.eventType
         eventDescriptionTextView.text = event.eventDescription
         
