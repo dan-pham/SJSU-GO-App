@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateTextFields()
+        passwordTextField.isSecureTextEntry = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {

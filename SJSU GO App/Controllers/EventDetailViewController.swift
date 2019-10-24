@@ -85,7 +85,7 @@ extension EventDetailViewController {
         if let zoomOutImageView = tapGesture.view {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 
-                zoomOutImageView.contentMode = .scaleAspectFit
+                zoomOutImageView.contentMode = .scaleAspectFill
                 zoomOutImageView.frame = self.startingFrame!
                 self.blackBackgroundView?.alpha = 0
                 
