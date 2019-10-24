@@ -13,7 +13,7 @@ class UserEventCell: UITableViewCell {
     var event: UserEvent? {
         didSet {
             textLabel?.text = event?.eventType
-            detailTextLabel?.text = event?.eventDescription
+            detailTextLabel?.text = event?.isApprovedByAdmin ?? event?.eventDescription
             
             if let image = event?.image {
                 eventImageView.image = image

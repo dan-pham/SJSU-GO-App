@@ -73,7 +73,7 @@ class DashboardViewController: UIViewController {
         event.id = dictionary["id"] as? String
         event.eventType = dictionary["event_type"] as? String
         event.eventDescription = dictionary["event_description"] as? String
-        event.isApprovedByAdmin = dictionary["is_approved_by_admin"] as? Bool
+        event.isApprovedByAdmin = dictionary["is_approved_by_admin"] as? String
         event.points = dictionary["points"] as? Int
         
         imageUrl = dictionary["image_url"] as? String ?? ""

@@ -22,6 +22,7 @@ class PendingEventsViewController: UIViewController {
         super.viewWillAppear(true)
         // TODO: Need to fix translucency problems
         navigationController?.navigationBar.isTranslucent = false
+        observePendingEvents()
     }
     
     override func viewDidLoad() {
@@ -51,6 +52,10 @@ class PendingEventsViewController: UIViewController {
             self.fetchEventWithEventId(eventId: eventId)
             
         }, withCancel: nil)
+        
+        ref.observe(.childRemoved, with: { (snapshot) in
+            self.handleReloadTable()
+        }, withCancel: nil)
     }
     
     func fetchEventWithEventId(eventId: String) {
@@ -73,15 +78,15 @@ class PendingEventsViewController: UIViewController {
          event.user = user
          event.id = dictionary["id"] as? String
          event.eventType = dictionary["event_type"] as? String
-        event.eventDescription = dictionary["event_description"] as? String
-        event.isApprovedByAdmin = dictionary["is_approved_by_admin"] as? Bool
-        event.points = dictionary["points"] as? Int
-        
-        imageUrl = dictionary["image_url"] as? String ?? ""
-        
-        let imageView = UIImageView()
-        imageView.loadImageUsingCacheWithUrlString(imageUrl)
-        event.image = imageView.image
+         event.eventDescription = dictionary["event_description"] as? String
+         event.isApprovedByAdmin = dictionary["is_approved_by_admin"] as? String
+         event.points = dictionary["points"] as? Int
+         
+         imageUrl = dictionary["image_url"] as? String ?? ""
+         
+         let imageView = UIImageView()
+         imageView.loadImageUsingCacheWithUrlString(imageUrl)
+         event.image = imageView.image
         
          return event
      }
