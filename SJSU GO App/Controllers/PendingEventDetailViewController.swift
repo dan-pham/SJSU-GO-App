@@ -67,10 +67,6 @@ class PendingEventDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func cancel(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-    
 }
 
 extension PendingEventDetailViewController {
