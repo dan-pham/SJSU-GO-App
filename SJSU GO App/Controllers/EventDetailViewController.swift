@@ -26,7 +26,7 @@ class EventDetailViewController: UIViewController {
     }
     
     func setupEventDetails() {
-        eventStatusLabel.text = event.isApprovedByAdmin
+        eventStatusLabel.text = "\(event.isApprovedByAdmin!)"
         eventTypeLabel.text = event.eventType
         eventDescriptionTextView.text = event.eventDescription
         
@@ -85,7 +85,7 @@ extension EventDetailViewController {
         if let zoomOutImageView = tapGesture.view {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 
-                zoomOutImageView.contentMode = .scaleAspectFill
+                zoomOutImageView.contentMode = .scaleAspectFit
                 zoomOutImageView.frame = self.startingFrame!
                 self.blackBackgroundView?.alpha = 0
                 

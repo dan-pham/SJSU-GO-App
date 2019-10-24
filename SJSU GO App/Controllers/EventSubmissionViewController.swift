@@ -130,7 +130,7 @@ class EventSubmissionViewController: UIViewController {
         userEvent.eventType = eventTypeTextField.text
         userEvent.eventDescription = eventDescriptionTextView.text
         userEvent.points = adminEvent.points
-        userEvent.isApprovedByAdmin = "Pending"
+        userEvent.isApprovedByAdmin = false
         userEvent.id = childRef.key
         
         // Event attributes
@@ -149,9 +149,6 @@ class EventSubmissionViewController: UIViewController {
             
             let userEventsRef = Database.database().reference().child("user_events").child(userId).child(self.userEvent.id!)
             userEventsRef.setValue(1)
-            
-            let pendingEventsRef = Database.database().reference().child("pending_events").child(self.userEvent.id!)
-            pendingEventsRef.setValue(1)
         }
     }
     

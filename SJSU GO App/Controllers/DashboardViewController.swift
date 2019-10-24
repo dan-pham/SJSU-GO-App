@@ -73,7 +73,7 @@ class DashboardViewController: UIViewController {
         event.id = dictionary["id"] as? String
         event.eventType = dictionary["event_type"] as? String
         event.eventDescription = dictionary["event_description"] as? String
-        event.isApprovedByAdmin = dictionary["is_approved_by_admin"] as? String
+        event.isApprovedByAdmin = dictionary["is_approved_by_admin"] as? Bool
         event.points = dictionary["points"] as? Int
         
         imageUrl = dictionary["image_url"] as? String ?? ""
@@ -180,12 +180,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = storyboard?.instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
-        let event = events[indexPath.item]
-
-        detailVC.event = event
-
-        navigationController?.pushViewController(detailVC, animated: true)
+        // Open a detail view and pass in information for the event
+        // Maybe reference TabBarViewController.presentDetailVC() in animetracker
+        print("Selected event at indexPath: ", indexPath)
     }
 
 }

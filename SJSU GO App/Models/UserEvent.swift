@@ -16,6 +16,6 @@ class UserEvent: NSObject {
     var eventDescription: String?
     var points: Int?
     var date: Date?
-    var isApprovedByAdmin: String?
+    var isApprovedByAdmin: Bool?
     var image: UIImage?
 }

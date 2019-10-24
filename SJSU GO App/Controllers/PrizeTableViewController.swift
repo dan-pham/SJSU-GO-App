@@ -251,7 +251,7 @@ class PrizeTableViewController: UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0
         {
-            UIView.animate(withDuration: 1, animations:
+            UIView.animate(withDuration: 0.5, animations:
                 {
                     if self.tableData[indexPath.section].expanded == true
                     {
