@@ -20,7 +20,6 @@ class PendingEventDetailViewController: UIViewController {
     @IBOutlet weak var eventDescriptionTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     
-    var userPoints: Int?
     var event = UserEvent()
     var startingImageView: UIImageView?
     var blackBackgroundView: UIView?
