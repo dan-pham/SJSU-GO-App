@@ -32,6 +32,10 @@
 		F519BABE2341702800A53068 /* OtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519BABC2341702800A53068 /* OtherCell.swift */; };
 		F519BABF2341702800A53068 /* OtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F519BABD2341702800A53068 /* OtherCell.xib */; };
 		F519BAC12341810300A53068 /* OrderPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519BAC02341810300A53068 /* OrderPopUpViewController.swift */; };
+		F52D0E8423666176000D0A46 /* OrderHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52D0E8323666176000D0A46 /* OrderHistory.swift */; };
+		F52D0E86236663DA000D0A46 /* order.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52D0E85236663DA000D0A46 /* order.swift */; };
+		F52D0E89236665B3000D0A46 /* orderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52D0E87236665B3000D0A46 /* orderCellTableViewCell.swift */; };
+		F52D0E8A236665B3000D0A46 /* orderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52D0E88236665B3000D0A46 /* orderCellTableViewCell.xib */; };
 		F546D123232A0F2F00C493FA /* prizemodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F546D121232A0F2F00C493FA /* prizemodel.swift */; };
 		F5D5D7F1232C65AF0034568F /* PrizeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5D7F0232C65AF0034568F /* PrizeTableViewController.swift */; };
 		F5D5D7F4232C7A8C0034568F /* clothingPrizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5D7F2232C7A8C0034568F /* clothingPrizeCell.swift */; };
@@ -70,6 +74,10 @@
 		F519BABC2341702800A53068 /* OtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
 		F519BABD2341702800A53068 /* OtherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherCell.xib; sourceTree = "<group>"; };
 		F519BAC02341810300A53068 /* OrderPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPopUpViewController.swift; sourceTree = "<group>"; };
+		F52D0E8323666176000D0A46 /* OrderHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistory.swift; sourceTree = "<group>"; };
+		F52D0E85236663DA000D0A46 /* order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = order.swift; sourceTree = "<group>"; };
+		F52D0E87236665B3000D0A46 /* orderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderCellTableViewCell.swift; sourceTree = "<group>"; };
+		F52D0E88236665B3000D0A46 /* orderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = orderCellTableViewCell.xib; sourceTree = "<group>"; };
 		F546D121232A0F2F00C493FA /* prizemodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prizemodel.swift; sourceTree = "<group>"; };
 		F5D5D7F0232C65AF0034568F /* PrizeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeTableViewController.swift; sourceTree = "<group>"; };
 		F5D5D7F2232C7A8C0034568F /* clothingPrizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothingPrizeCell.swift; sourceTree = "<group>"; };
@@ -150,6 +158,7 @@
 				C3D81FC7230BB7E600309F23 /* AdminEvent.swift */,
 				C3453CE1230C8E88008E2BD4 /* UserEvent.swift */,
 				F546D121232A0F2F00C493FA /* prizemodel.swift */,
+				F52D0E85236663DA000D0A46 /* order.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +173,8 @@
 				F5D5D7F6232C83D80034568F /* TierCell.swift */,
 				F519BABC2341702800A53068 /* OtherCell.swift */,
 				F519BABD2341702800A53068 /* OtherCell.xib */,
+				F52D0E87236665B3000D0A46 /* orderCellTableViewCell.swift */,
+				F52D0E88236665B3000D0A46 /* orderCellTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +182,7 @@
 		C3D08E5F225EA4680060BB40 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F52D0E8323666176000D0A46 /* OrderHistory.swift */,
 				F519BAC02341810300A53068 /* OrderPopUpViewController.swift */,
 				C3479845225EC00E00C23F6B /* LoginViewController.swift */,
 				C3E9607422387A4D002E19BF /* SignUpViewController.swift */,
@@ -283,6 +295,7 @@
 			files = (
 				F519BABF2341702800A53068 /* OtherCell.xib in Resources */,
 				C3E9607D22387A4F002E19BF /* LaunchScreen.storyboard in Resources */,
+				F52D0E8A236665B3000D0A46 /* orderCellTableViewCell.xib in Resources */,
 				C376C67E225E9D8900644468 /* GoogleService-Info.plist in Resources */,
 				C3E9607A22387A4F002E19BF /* Assets.xcassets in Resources */,
 				F5D5D7F9232C83D80034568F /* TierCell.xib in Resources */,
@@ -350,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3479846225EC00E00C23F6B /* LoginViewController.swift in Sources */,
+				F52D0E86236663DA000D0A46 /* order.swift in Sources */,
 				C3657FFB230DD7F500C4B141 /* UserEventCell.swift in Sources */,
 				C3657FF9230DD4D100C4B141 /* UIImageView+Additions.swift in Sources */,
 				C3A7B374230A23B400AC4003 /* DashboardViewController.swift in Sources */,
@@ -360,11 +374,13 @@
 				C3D81FC8230BB7E600309F23 /* AdminEvent.swift in Sources */,
 				C3E9607522387A4D002E19BF /* SignUpViewController.swift in Sources */,
 				C3E9607322387A4D002E19BF /* AppDelegate.swift in Sources */,
+				F52D0E8423666176000D0A46 /* OrderHistory.swift in Sources */,
 				C3453CE4230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift in Sources */,
 				F546D123232A0F2F00C493FA /* prizemodel.swift in Sources */,
 				F5D5D7F8232C83D80034568F /* TierCell.swift in Sources */,
 				C3A7B372230A22D100AC4003 /* TabBarViewController.swift in Sources */,
 				C3ECE7122310B53E00FED0BC /* ProfileViewController.swift in Sources */,
+				F52D0E89236665B3000D0A46 /* orderCellTableViewCell.swift in Sources */,
 				C3D81FC6230BB7C000309F23 /* SampleEvents.swift in Sources */,
 				F5D5D7F4232C7A8C0034568F /* clothingPrizeCell.swift in Sources */,
 				C3C86B792304DAA900F87A80 /* User.swift in Sources */,

@@ -56,6 +56,7 @@ class PrizeTableViewController: UITableViewController
             
             if let dictionary = snapshot.value as? [String: AnyObject]
             {
+                
                 self.user.firstName = dictionary["first_name"] as? String
                 self.user.lastName = dictionary["last_name"] as? String
                 self.user.major = dictionary["major"] as? String
@@ -67,7 +68,7 @@ class PrizeTableViewController: UITableViewController
 
             }
         }
-        
+            
             retrieveData(childName: "Tier1")
             retrieveData(childName: "Tier2")
             retrieveData(childName: "Tier3")
@@ -285,6 +286,7 @@ class PrizeTableViewController: UITableViewController
     
     public func reloadData(section: Int , row: Int)
     {
+        
         print("reloading")
         //update info from DB, only stock and user's point
         // or you can reload data from BS
@@ -317,7 +319,9 @@ class PrizeTableViewController: UITableViewController
                 {
                     for prizes in snapshot.children.allObjects as![DataSnapshot]
                     {
+                        
                         let prizeObject = prizes.value as? [String: AnyObject]
+                    
                         let prizeName = prizeObject?["name"]
                         let prizeDescription = prizeObject?["description"]
                         let prizeImageUrl = prizeObject?["imageUrl"]
@@ -331,7 +335,7 @@ class PrizeTableViewController: UITableViewController
                                 let data = try Data (contentsOf: URL)
                                 let prizeImage = UIImage(data: data)
                                 
-                                let prize = prizemodel(image: prizeImage!, name: prizeName as! String, description: prizeDescription as! String, category: prizeCategory as! String, stock: prizeStock as! Int, point: prizePoint as! Int)
+                                let prize = prizemodel(image: prizeImage!, name: prizeName as! String, description: prizeDescription as! String, category: prizeCategory as! String, stock: prizeStock as! Int, point: prizePoint as! Int, URL: prizeImageUrl as! String)
                                 
                                 print("successfully ")
                                 self.prizeList.append(prize)
@@ -345,7 +349,7 @@ class PrizeTableViewController: UITableViewController
                         
                     }
                 }
-                print(self.prizeList[0].name)
+                
                 let add = CellData(expanded: false,title: childName,Cells: self.prizeList )
                 self.tableData.append(add)
                 self.prizeList.removeAll()

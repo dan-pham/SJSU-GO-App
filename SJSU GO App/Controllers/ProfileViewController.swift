@@ -12,6 +12,20 @@ import Firebase
 
 class ProfileViewController: UIViewController {
     
+    @IBAction func ShowOrderHistory(_ sender: Any)
+    {
+        
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"OrderHistory") as!OrderHistory
+        self.addChild(popUpVC)
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        
+        // go to order History view
+        
+        popUpVC.didMove(toParent: self)
+
+    }
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var qrCodeImageView: UIImageView!

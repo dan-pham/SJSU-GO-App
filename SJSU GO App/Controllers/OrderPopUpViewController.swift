@@ -48,14 +48,13 @@ class OrderPopUpViewController: UIViewController
       
         // create an order sent to orders section in DB and also create a reference number copy to user's order histroy
         let name = user.firstName! + " " + user.lastName!
-        let order = ["Buyer": name as AnyObject, "sjsu_id": user.sjsuId! as AnyObject, "item": prize.name as AnyObject, "size": prizeSize as AnyObject, "order date": date, "points": prize.point, "status": "incomplete :ordered"] as [String: AnyObject]
+        let order = ["Buyer": name as AnyObject, "sjsu_id": user.sjsuId! as AnyObject, "item": prize.name as AnyObject, "size": prizeSize as AnyObject, "order date": date, "points": prize.point, "status": "incomplete :ordered", "imageURL": prize.imageURL] as [String: AnyObject]
 
         Database.database().reference().child("orders").child(uid).child(orderRef.uuidString).setValue(order)
         Database.database().reference().child("users").child(uid).child("points").setValue(afterPoints)
         
         let afterStock = prize.stock-1
-        //Database.database().reference().child("prizes").child(Tier).child(prize.name).child("stock").setValue(afterStock)
-    
+       // Database.database().reference().child("prizes").child(Tier).child(prize.name).child("stock").setValue(afterStock)
       
         
         
@@ -96,6 +95,7 @@ class OrderPopUpViewController: UIViewController
         })
         
     }
+    
     func leaveAnimate()
     {
         UIView.animate(withDuration: 0.5, animations: {

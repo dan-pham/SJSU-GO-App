@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
-class prizemodel{
+class prizemodel
+{
     var image : UIImage
+    var imageURL : String
     var name : String
     var description : String
     var category : String
@@ -24,8 +26,9 @@ class prizemodel{
         self.category = ""
         self.stock = 4
         self.point = 5
+        self.imageURL = ""
     }
-    init (image: UIImage, name: String, description : String, category : String,stock: Int,point: Int)
+    init (image: UIImage, name: String, description : String, category : String,stock: Int,point: Int, URL: String)
     {
         self.image = image
         self.name = name
@@ -33,5 +36,6 @@ class prizemodel{
         self.category = category
         self.stock = stock
         self.point = point
+        self.imageURL = URL
     }
 }
