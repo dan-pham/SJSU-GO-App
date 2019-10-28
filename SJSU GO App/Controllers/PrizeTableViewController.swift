@@ -36,7 +36,12 @@ class PrizeTableViewController: UITableViewController
         PrizeTable.dataSource = self
         PrizeTable.delegate = self
         PrizeTable.separatorStyle = .none
-        
+        // set backgroud of tableView
+        /*
+        let backgroundImage = UIImage(named: "sjsu_go_logo")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+        */
         /// declare the cell types that going to use 
         let TierCell = UINib(nibName: "TierCell", bundle: nil)
         PrizeTable.register(TierCell, forCellReuseIdentifier: "TierCell")
@@ -104,18 +109,27 @@ class PrizeTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        
         if indexPath.row == 0
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TierCell")as! TierCell
         
             cell.Title?.text = tableData[indexPath.section].title 
             cell.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 5
+            cell.layer.borderWidth = 2
+            cell.layer.shadowOffset = CGSize(width: 2, height: 3)
+            cell.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            
             return cell
         }
-
+            
         // Configure the cell...
         else
         {
+            
+            
             if tableData[indexPath.section].Cells[indexPath.row-1].category == "clothing"
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "clothingPrizeCell") as! clothingPrizeCell
@@ -178,8 +192,13 @@ class PrizeTableViewController: UITableViewController
                         popUpVC.didMove(toParent: self)
                         
                 }
-               
+                cell.layer.masksToBounds = true
+                cell.layer.cornerRadius = 5
+                cell.layer.borderWidth = 2
+                cell.layer.shadowOffset = CGSize(width: 2, height: 3)
+                cell.layer.borderColor = #colorLiteral(red: 0.8588768244, green: 0.9472774863, blue: 1, alpha: 1)
                 return cell
+                
             }
                 
            // else if tableData[indexPath.section].Cells[indexPath.row-1].category == "none"
@@ -239,13 +258,17 @@ class PrizeTableViewController: UITableViewController
                         popUpVC.didMove(toParent: self)
                         
                     }
-                
-                
-                
+
+                cell.layer.masksToBounds = true
+                cell.layer.cornerRadius = 5
+                cell.layer.borderWidth = 2
+                cell.layer.shadowOffset = CGSize(width: 2, height: 3)
+                cell.layer.borderColor = #colorLiteral(red: 0.8588768244, green: 0.9472774863, blue: 1, alpha: 1)
                 return cell
             }
             
         }
+        
        
     }
     
@@ -312,7 +335,7 @@ class PrizeTableViewController: UITableViewController
     {
         ref = Database.database().reference().child("prizes").child(childName)
        
-        ref.observe(DataEventType.value, with:
+        ref.observeSingleEvent(of: DataEventType.value, with:
             {
                 (snapshot) in
                 if snapshot.childrenCount>0

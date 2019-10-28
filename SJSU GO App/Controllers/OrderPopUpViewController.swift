@@ -54,7 +54,7 @@ class OrderPopUpViewController: UIViewController
         Database.database().reference().child("users").child(uid).child("points").setValue(afterPoints)
         
         let afterStock = prize.stock-1
-       // Database.database().reference().child("prizes").child(Tier).child(prize.name).child("stock").setValue(afterStock)
+        Database.database().reference().child("prizes").child(Tier).child(prize.name).child("stock").setValue(afterStock)
       
         
         
