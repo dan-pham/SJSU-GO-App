@@ -35,6 +35,7 @@ class PendingEventDetailViewController: UIViewController {
             nameLabel.text = "\(user.firstName!) \(user.lastName!)"
             majorLabel.text = user.major
             idLabel.text = user.sjsuId
+            academicYearLabel.text = user.academicYear
         }
         
         eventTypeLabel.text = event.eventType
@@ -45,6 +46,10 @@ class PendingEventDetailViewController: UIViewController {
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomTap)))
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func approveEvent(_ sender: Any) {
         Alerts.showApproveAlertVC(on: self, action: (UIAlertAction(title: "Approve", style: .default) {_ in
             self.handleApproveEvent()
@@ -52,7 +57,8 @@ class PendingEventDetailViewController: UIViewController {
     }
     
     func handleApproveEvent() {
-        print("Accept")
+        print("Accepted")
+        handleUpdateUserEventStatus(isApproved: true)
         navigationController?.popViewController(animated: true)
     }
     
@@ -63,12 +69,70 @@ class PendingEventDetailViewController: UIViewController {
     }
     
     func handleRejectEvent() {
-        print("Reject")
+        print("Rejected")
+        handleUpdateUserEventStatus(isApproved: false)
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func cancel(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    func handleUpdateUserEventStatus(isApproved: Bool) {
+        if (isApproved) {
+            updateStatusInEvents(event.id!, isApprovedByAdmin: "Approved")
+            calculateUserPointsFromFirebase()
+            removeEventFromPendingEvents(event.id!)
+        } else {
+            updateStatusInEvents(event.id!, isApprovedByAdmin: "Rejected")
+            removeEventFromPendingEvents(event.id!)
+        }
+    }
+    
+    func updateStatusInEvents(_ eventId: String, isApprovedByAdmin: String) {
+        let ref = Database.database().reference()
+        let eventReference = ref.child("events").child(eventId)
+        let values = ["is_approved_by_admin" : isApprovedByAdmin]
+
+        eventReference.updateChildValues(values) { (err, ref) in
+            if let err = err {
+                print(err)
+                return
+            }
+        }
+    }
+
+    func removeEventFromPendingEvents(_ eventId: String) {
+        Database.database().reference().child("pending_events").child(eventId).removeValue { (error, ref) in
+            if error != nil {
+                print("Failed to delete message: ", error)
+                return
+            }
+        }
+    }
+
+    func calculateUserPointsFromFirebase() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+
+        let userReference = Database.database().reference().child("users").child(uid)
+        userReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let userPoints = dictionary["points"] as? Int ?? 0
+                let points: Int = userPoints + self.event.points!
+                self.handleUpdateUserPoints(uid, points: points)
+            }
+        }, withCancel: nil)
+    }
+
+    func handleUpdateUserPoints(_ uid: String, points: Int) {
+        let ref = Database.database().reference()
+        let userReference = ref.child("users").child(uid)
+        let values = ["points" : points]
+
+        userReference.updateChildValues(values) { (err, ref) in
+            if let err = err {
+                print(err)
+                return
+            }
+        }
     }
     
 }
