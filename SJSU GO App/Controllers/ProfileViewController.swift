@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController {
         profileImageView.contentMode = .scaleAspectFit
         profileImageView.backgroundColor = .lightGray
         
-        profileImageView.layer.cornerRadius = 64
+        profileImageView.layer.cornerRadius = 50
         profileImageView.layer.borderColor = UIColor.black.cgColor
         profileImageView.layer.borderWidth = 1
         
