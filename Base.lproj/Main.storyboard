@@ -722,18 +722,18 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhR-ti-Zkw">
-                                <rect key="frame" x="0.0" y="174" width="375" height="20.5"/>
+                                <rect key="frame" x="16" y="174" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KGo-yl-IxL">
-                                <rect key="frame" x="20.5" y="214.5" width="334" height="30"/>
+                                <rect key="frame" x="77.5" y="214.5" width="220" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ov4-ox-fp6">
-                                        <rect key="frame" x="0.0" y="0.0" width="163" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Open QR Code Scanner">
+                                        <state key="normal" title="QR Scanner">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -741,9 +741,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01d-WZ-TCu">
-                                        <rect key="frame" x="171" y="0.0" width="163" height="30"/>
+                                        <rect key="frame" x="114" y="0.0" width="106" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Open Pending Events">
+                                        <state key="normal" title="Pending Events">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -773,18 +773,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SkR-c5-WX5" firstAttribute="top" secondItem="o1c-9X-HfW" secondAttribute="top" constant="15" id="1F7-aA-J5u"/>
-                            <constraint firstItem="JhR-ti-Zkw" firstAttribute="centerX" secondItem="LZz-cK-EVo" secondAttribute="centerX" id="3bg-6L-u9f"/>
+                            <constraint firstItem="JhR-ti-Zkw" firstAttribute="leading" secondItem="o1c-9X-HfW" secondAttribute="leading" constant="16" id="5Mp-TK-DMP"/>
                             <constraint firstItem="GRP-Av-1bT" firstAttribute="leading" secondItem="o1c-9X-HfW" secondAttribute="leading" id="8LZ-NC-86U"/>
                             <constraint firstItem="SkR-c5-WX5" firstAttribute="centerX" secondItem="LZz-cK-EVo" secondAttribute="centerX" id="9Ed-Gy-cKt"/>
-                            <constraint firstItem="JhR-ti-Zkw" firstAttribute="leading" secondItem="o1c-9X-HfW" secondAttribute="leading" id="AMu-bY-FCT"/>
                             <constraint firstItem="GRP-Av-1bT" firstAttribute="trailing" secondItem="o1c-9X-HfW" secondAttribute="trailing" id="AW9-Xt-L69"/>
                             <constraint firstItem="I3a-Gr-lXK" firstAttribute="top" secondItem="KGo-yl-IxL" secondAttribute="bottom" constant="15" id="C4e-ej-4eP"/>
-                            <constraint firstItem="o1c-9X-HfW" firstAttribute="trailing" secondItem="JhR-ti-Zkw" secondAttribute="trailing" id="CMk-r2-IHf"/>
                             <constraint firstItem="JhR-ti-Zkw" firstAttribute="top" secondItem="SkR-c5-WX5" secondAttribute="bottom" constant="15" id="FMy-E2-Pvc"/>
                             <constraint firstItem="GRP-Av-1bT" firstAttribute="bottom" secondItem="o1c-9X-HfW" secondAttribute="bottom" id="GeA-0k-Cwz"/>
                             <constraint firstItem="I3a-Gr-lXK" firstAttribute="centerX" secondItem="LZz-cK-EVo" secondAttribute="centerX" id="asC-os-GHK"/>
                             <constraint firstItem="KGo-yl-IxL" firstAttribute="top" secondItem="JhR-ti-Zkw" secondAttribute="bottom" constant="20" id="bgH-Mi-Vh3"/>
                             <constraint firstItem="KGo-yl-IxL" firstAttribute="centerX" secondItem="LZz-cK-EVo" secondAttribute="centerX" id="cU3-Sc-ikm"/>
+                            <constraint firstItem="o1c-9X-HfW" firstAttribute="trailing" secondItem="JhR-ti-Zkw" secondAttribute="trailing" constant="16" id="yp9-45-LqP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o1c-9X-HfW"/>
                     </view>
