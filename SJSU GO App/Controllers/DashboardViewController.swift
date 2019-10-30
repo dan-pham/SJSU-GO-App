@@ -126,9 +126,9 @@ class DashboardViewController: UIViewController {
         user.points = points
         
         if points == 1 {
-            pointsLabel.text = "\(points) point"
+            pointsLabel.text = "You have: \(points) point"
         } else {
-            pointsLabel.text = "\(points) points"
+            pointsLabel.text = "You have: \(points) points"
         }
     }
     
