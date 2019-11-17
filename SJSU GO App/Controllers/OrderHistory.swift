@@ -11,6 +11,8 @@ import Firebase
 
 class OrderHistory: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    let activityIndicator = ActivityIndicator()
+    
     @IBAction func Out(_ sender: Any)
     {
         self.view.removeFromSuperview()
@@ -55,6 +57,8 @@ class OrderHistory: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     public func retrieveData(childName: String )
     {
+        activityIndicator.showActivityIndicator()
+        
         ref = Database.database().reference().child("orders").child(childName)
         
         ref.observe(DataEventType.value, with:
@@ -92,7 +96,7 @@ class OrderHistory: UIViewController, UITableViewDelegate, UITableViewDataSource
                 }
                 
                 self.HistoryTable.reloadData()
-                
+                self.activityIndicator.hideActivityIndicator()
         })
         
         

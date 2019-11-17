@@ -25,6 +25,8 @@ class PendingEventDetailViewController: UIViewController {
     var blackBackgroundView: UIView?
     var startingFrame: CGRect?
     
+    let activityIndicator = ActivityIndicator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupEventDetails()
@@ -57,7 +59,9 @@ class PendingEventDetailViewController: UIViewController {
     }
     
     func handleApproveEvent() {
+        activityIndicator.showActivityIndicator()
         handleUpdateUserEventStatus(isApproved: true)
+        activityIndicator.hideActivityIndicator()
         navigationController?.popViewController(animated: true)
     }
     
@@ -68,7 +72,9 @@ class PendingEventDetailViewController: UIViewController {
     }
     
     func handleRejectEvent() {
+        activityIndicator.showActivityIndicator()
         handleUpdateUserEventStatus(isApproved: false)
+        activityIndicator.hideActivityIndicator()
         navigationController?.popViewController(animated: true)
     }
     
@@ -90,6 +96,7 @@ class PendingEventDetailViewController: UIViewController {
 
         eventReference.updateChildValues(values) { (err, ref) in
             if let err = err {
+                self.activityIndicator.hideActivityIndicator()
                 Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                 return
             }
@@ -99,6 +106,7 @@ class PendingEventDetailViewController: UIViewController {
     func removeEventFromPendingEvents(_ eventId: String) {
         Database.database().reference().child("pending_events").child(eventId).removeValue { (error, ref) in
             if error != nil {
+                self.activityIndicator.hideActivityIndicator()
                 Alerts.showRemoveEventFailedAlertVC(on: self, message: error!.localizedDescription)
                 return
             }
@@ -127,6 +135,7 @@ class PendingEventDetailViewController: UIViewController {
 
         userReference.updateChildValues(values) { (err, ref) in
             if let err = err {
+                self.activityIndicator.hideActivityIndicator()
                 Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                 return
             }

@@ -17,6 +17,8 @@ class SignUpViewController: UIViewController {
     let academicYears = ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"]
     var selectedFieldData = [String]()
     
+    let activityIndicator = ActivityIndicator()
+    
     // MARK: Outlets
     
     @IBOutlet weak var idTextField: UITextField!
@@ -68,14 +70,18 @@ class SignUpViewController: UIViewController {
             return
         }
         
+        activityIndicator.showActivityIndicator()
+        
         Auth.auth().createUser(withEmail: sjsuEmail, password: sjsuPassword) { (user, error) in
             
             if error != nil {
+                self.activityIndicator.hideActivityIndicator()
                 Alerts.showCreateUserFailedAlertVC(on: self, message: error!.localizedDescription)
                 return
             }
             
             guard let uid = user?.user.uid else {
+                self.activityIndicator.hideActivityIndicator()
                 return
             }
             
@@ -94,10 +100,12 @@ class SignUpViewController: UIViewController {
         usersReference.updateChildValues(values) { (error, ref) in
             
             if let error = error {
+                self.activityIndicator.hideActivityIndicator()
                 Alerts.showCreateUserFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }
             
+            self.activityIndicator.hideActivityIndicator()
             self.navigationController?.popViewController(animated: true)
         }
     }

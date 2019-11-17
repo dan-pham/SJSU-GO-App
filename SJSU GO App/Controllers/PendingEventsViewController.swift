@@ -18,6 +18,8 @@ class PendingEventsViewController: UIViewController {
     var pendingEventsDictionary = [String: UserEvent]()
     let cellId = "cellId"
     
+    let activityIndicator = ActivityIndicator()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // TODO: Need to fix translucency problems
@@ -45,6 +47,7 @@ class PendingEventsViewController: UIViewController {
     func observePendingEvents() {
         
         // TODO: Implement a check so that all events except the user's displays in pending events
+        activityIndicator.showActivityIndicator()
         
         let ref = Database.database().reference().child("pending_events")
         ref.observe(.childAdded, with: { (snapshot) in
@@ -107,6 +110,7 @@ class PendingEventsViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.pendingEventsTableView.reloadData()
+            self.activityIndicator.hideActivityIndicator()
         }
     }
     

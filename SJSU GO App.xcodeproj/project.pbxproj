@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		647CDA6102A17EC65FF08840 /* Pods_SJSU_GO_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */; };
+		C30ECB0D2380CCAB001E4312 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30ECB0C2380CCAB001E4312 /* ActivityIndicator.swift */; };
 		C3453CE2230C8E88008E2BD4 /* UserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3453CE1230C8E88008E2BD4 /* UserEvent.swift */; };
 		C3453CE4230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3453CE3230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift */; };
 		C3479846225EC00E00C23F6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3479845225EC00E00C23F6B /* LoginViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.release.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.release.xcconfig"; sourceTree = "<group>"; };
 		8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SJSU_GO_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C30ECB0C2380CCAB001E4312 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		C3453CE1230C8E88008E2BD4 /* UserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvent.swift; sourceTree = "<group>"; };
 		C3453CE3230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventSubmissionViewController+handlers.swift"; sourceTree = "<group>"; };
 		C3479845225EC00E00C23F6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		C3D08E5E225EA4620060BB40 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C30ECB0C2380CCAB001E4312 /* ActivityIndicator.swift */,
 				C371C2A02367C22B005566E0 /* UserEventCell.swift */,
 				F5D5D7F2232C7A8C0034568F /* clothingPrizeCell.swift */,
 				F5D5D7F3232C7A8C0034568F /* clothingPrizeCell.xib */,
@@ -394,6 +397,7 @@
 				F5D5D7F1232C65AF0034568F /* PrizeTableViewController.swift in Sources */,
 				F519BABE2341702800A53068 /* OtherCell.swift in Sources */,
 				C3ECE7142310BC3100FED0BC /* PendingEventsViewController.swift in Sources */,
+				C30ECB0D2380CCAB001E4312 /* ActivityIndicator.swift in Sources */,
 				C371C2A32367C266005566E0 /* Alerts.swift in Sources */,
 				F519BAC12341810300A53068 /* OrderPopUpViewController.swift in Sources */,
 			);
