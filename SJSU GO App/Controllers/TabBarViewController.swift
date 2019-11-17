@@ -27,9 +27,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
             perform(#selector(handleLogOut), with: nil, afterDelay: 0)
-        } else {
-            print("User successfully logged in")
-            
         }
     }
     
@@ -61,7 +58,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         do {
             try Auth.auth().signOut()
         } catch let signOutError {
-            print(signOutError)
+            Alerts.showLogOutErrorAlertVC(on: self, message: signOutError.localizedDescription)
         }
         
         let loginNC = storyboard?.instantiateViewController(withIdentifier: "loginNavController")

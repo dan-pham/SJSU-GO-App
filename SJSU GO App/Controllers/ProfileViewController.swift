@@ -92,13 +92,13 @@ class ProfileViewController: UIViewController {
             storageRef.putData(uploadData, metadata: nil) { (_, error) in
                 
                 if let error = error {
-                    print(error)
+                    Alerts.showUploadImageFailedAlertVC(on: self, message: error.localizedDescription)
                     return
                 }
                 
                 storageRef.downloadURL(completion: { (url, err) in
                     if let err = err {
-                        print(err)
+                        Alerts.showDownloadUrlFailedAlertVC(on: self, message: err.localizedDescription)
                         return
                     }
                     
@@ -121,7 +121,7 @@ class ProfileViewController: UIViewController {
         userReference.updateChildValues(values) { (err, ref) in
             
             if let err = err {
-                print(err)
+                Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                 return
             }
 
@@ -155,10 +155,13 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func openQRCodeScanner(_ sender: Any) {
-        let qrCodeScannerVC = storyboard?.instantiateViewController(withIdentifier: "QRCodeScannerViewController")
+        Alerts.showFeatureInDevelopmentAlertVC(on: self)
         
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.pushViewController(qrCodeScannerVC!, animated: true)
+        // Uncomment following lines to access QR scanner
+//        let qrCodeScannerVC = storyboard?.instantiateViewController(withIdentifier: "QRCodeScannerViewController")
+//
+//        navigationController?.navigationBar.isHidden = true
+//        navigationController?.pushViewController(qrCodeScannerVC!, animated: true)
     }
     
     @IBAction func openPendingEvents(_ sender: Any) {

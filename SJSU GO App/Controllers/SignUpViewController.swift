@@ -59,19 +59,19 @@ class SignUpViewController: UIViewController {
     @IBAction func signUp(_ sender: Any) {
         
         guard idTextField.hasText && passwordTextField.hasText && emailTextField.hasText && firstNameTextField.hasText && lastNameTextField.hasText && majorTextField.hasText && academicYearTextField.hasText else {
-            print("Please fill in every text field except for the major and academic year.")
+            Alerts.showSignUpFailedAlertVC(on: self)
             return
         }
         
         guard let sjsuId = idTextField.text, let sjsuPassword = passwordTextField.text, let sjsuEmail = emailTextField.text, let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let major = majorTextField.text, let academicYear = academicYearTextField.text else {
-            print("Sign up failed")
+            Alerts.showRestartAlertVC(on: self)
             return
         }
         
         Auth.auth().createUser(withEmail: sjsuEmail, password: sjsuPassword) { (user, error) in
             
             if error != nil {
-                print("Error creating user: \(error!.localizedDescription)")
+                Alerts.showCreateUserFailedAlertVC(on: self, message: error!.localizedDescription)
                 return
             }
             
@@ -94,7 +94,7 @@ class SignUpViewController: UIViewController {
         usersReference.updateChildValues(values) { (error, ref) in
             
             if let error = error {
-                print("Error updating child values in database: ", error)
+                Alerts.showCreateUserFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }
             

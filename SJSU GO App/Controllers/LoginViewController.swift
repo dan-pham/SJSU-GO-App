@@ -34,15 +34,20 @@ class LoginViewController: UIViewController {
     
     @IBAction func logIn(_ sender: Any) {
         
+        guard emailTextField.hasText && passwordTextField.hasText else {
+            Alerts.showSignInFailedAlertVC(on: self)
+            return
+        }
+        
         guard let email = emailTextField.text, let password = passwordTextField.text else {
-            print("Log in failed")
+            Alerts.showRestartAlertVC(on: self)
             return
         }
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
             if let error = error {
-                print("Error signing in: ", error)
+                Alerts.showAuthenticateUserFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }
             

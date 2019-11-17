@@ -41,7 +41,7 @@ class QRCodeScannerViewController: UIViewController {
     func defineCaptureDevice(session: AVCaptureSession) {
         // Define capture device
         guard let captureDevice = AVCaptureDevice.default(for: .video) else {
-            print("No capture device found")
+            Alerts.showNoCaptureDeviceFoundAlertVC(on: self)
             return
         }
         
@@ -49,7 +49,7 @@ class QRCodeScannerViewController: UIViewController {
             let input = try AVCaptureDeviceInput(device: captureDevice)
             session.addInput(input)
         } catch {
-            print("Error adding session input")
+            Alerts.showAddingSessionInputFailedAlertVC(on: self)
         }
     }
     
@@ -96,7 +96,6 @@ extension QRCodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
             
             // TODO: Approve user event in firebase
             print("Approve user event in firebase")
-            
         }))
         
         present(alert, animated: true, completion: nil)
