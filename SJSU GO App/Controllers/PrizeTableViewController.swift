@@ -28,6 +28,8 @@ class PrizeTableViewController: UITableViewController
     var ref: DatabaseReference!
     var points = 0
     
+    let activityIndicator = ActivityIndicator()
+    
     @IBOutlet var PrizeTable: UITableView!
    
     override func viewDidLoad()
@@ -56,6 +58,8 @@ class PrizeTableViewController: UITableViewController
         let uid = Auth.auth().currentUser!.uid
         let ref = Database.database().reference().child("users").child(uid)
         
+        activityIndicator.showActivityIndicator()
+        
         ref.observeSingleEvent(of: .value)
         { (snapshot) in
             
@@ -78,6 +82,7 @@ class PrizeTableViewController: UITableViewController
             retrieveData(childName: "Tier2")
             retrieveData(childName: "Tier3")
         
+        activityIndicator.hideActivityIndicator()
        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -365,6 +370,7 @@ class PrizeTableViewController: UITableViewController
                             }
                             catch let err
                             {
+                                self.activityIndicator.hideActivityIndicator()
                                 Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                             }
                         }

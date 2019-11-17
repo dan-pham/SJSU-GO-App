@@ -17,6 +17,8 @@ class DashboardViewController: UIViewController {
     var eventsDictionary = [String: UserEvent]()
     let cellId = "cellId"
     
+    let activityIndicator = ActivityIndicator()
+    
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var eventsTableView: UITableView!
     
@@ -41,6 +43,8 @@ class DashboardViewController: UIViewController {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
+        
+        activityIndicator.showActivityIndicator()
         
         retrieveUserDetailsFromFirebase(uid: uid)
         
@@ -92,6 +96,7 @@ class DashboardViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.eventsTableView.reloadData()
+            self.activityIndicator.hideActivityIndicator()
         }
     }
     

@@ -19,6 +19,8 @@ class EventSubmissionViewController: UIViewController {
     var eventsWithOtherOption = [AdminEvent]()
     var isOtherEventSelected = Bool()
     
+    let activityIndicator = ActivityIndicator()
+    
     @IBOutlet weak var eventTypeTextField: UITextField!
     @IBOutlet weak var eventDescriptionTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
@@ -90,9 +92,12 @@ class EventSubmissionViewController: UIViewController {
             return
         }
         
+        activityIndicator.showActivityIndicator()
+        
         let image = imageView.image!
         uploadImageToFirebaseStorage(image) { (imageUrl) in
             self.saveUserEventWithImageUrl(imageUrl)
+            self.activityIndicator.hideActivityIndicator()
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -104,12 +109,14 @@ class EventSubmissionViewController: UIViewController {
         if let uploadData = image.jpegData(compressionQuality: 0.5) {
             ref.putData(uploadData, metadata: nil) { (metadata, error) in
                 if error != nil {
+                    self.activityIndicator.hideActivityIndicator()
                     Alerts.showUploadImageFailedAlertVC(on: self, message: error!.localizedDescription)
                     return
                 }
                 
                 ref.downloadURL(completion: { (url, err) in
                     if let err = err {
+                        self.activityIndicator.hideActivityIndicator()
                         Alerts.showDownloadUrlFailedAlertVC(on: self, message: err.localizedDescription)
                         return
                     }
@@ -142,6 +149,7 @@ class EventSubmissionViewController: UIViewController {
         
         childRef.updateChildValues(values) { (error, ref) in
             if let error = error {
+                self.activityIndicator.hideActivityIndicator()
                 Alerts.showUpdateFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }

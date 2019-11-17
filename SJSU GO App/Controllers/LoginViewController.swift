@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    let activityIndicator = ActivityIndicator()
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
@@ -44,12 +46,17 @@ class LoginViewController: UIViewController {
             return
         }
         
+        activityIndicator.showActivityIndicator()
+        
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
             if let error = error {
+                self.activityIndicator.hideActivityIndicator()
                 Alerts.showAuthenticateUserFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }
+            
+            self.activityIndicator.hideActivityIndicator()
             
             let tabBarNavController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarNavController")
             self.present(tabBarNavController!, animated: true)

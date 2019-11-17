@@ -33,6 +33,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var qrCodeScannerButton: UIButton!
     @IBOutlet weak var pendingEventsButton: UIButton!
     
+    let activityIndicator = ActivityIndicator()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -84,6 +86,8 @@ class ProfileViewController: UIViewController {
             return
         }
         
+        activityIndicator.showActivityIndicator()
+        
         let imageName = UUID().uuidString
         let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
         
@@ -92,23 +96,30 @@ class ProfileViewController: UIViewController {
             storageRef.putData(uploadData, metadata: nil) { (_, error) in
                 
                 if let error = error {
+                    self.activityIndicator.hideActivityIndicator()
                     Alerts.showUploadImageFailedAlertVC(on: self, message: error.localizedDescription)
                     return
                 }
                 
                 storageRef.downloadURL(completion: { (url, err) in
                     if let err = err {
+                        self.activityIndicator.hideActivityIndicator()
                         Alerts.showDownloadUrlFailedAlertVC(on: self, message: err.localizedDescription)
                         return
                     }
                     
                     guard let url = url else {
+                        self.activityIndicator.hideActivityIndicator()
                         return
                     }
                     
                     let values = ["profile_image_url": url.absoluteString]
                     
                     self.handleUpdateUserProfileImageIntoDatabaseWithURL(uid, values: values as [String : AnyObject])
+                    
+                    DispatchQueue.main.async {
+                        self.activityIndicator.hideActivityIndicator()
+                    }
                 })
             }
         }
@@ -121,6 +132,7 @@ class ProfileViewController: UIViewController {
         userReference.updateChildValues(values) { (err, ref) in
             
             if let err = err {
+                self.activityIndicator.hideActivityIndicator()
                 Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                 return
             }
