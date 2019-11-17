@@ -19,10 +19,11 @@ class PendingEventsViewController: UIViewController {
     let cellId = "cellId"
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(true)
-         // TODO: Need to fix translucency problems
-         navigationController?.navigationBar.isTranslucent = false
-         observePendingEvents()
+        super.viewWillAppear(true)
+        // TODO: Need to fix translucency problems
+        navigationController?.navigationBar.isTranslucent = false
+        setupTableView()
+        observePendingEvents()
      }
 
      override func viewDidLoad() {
@@ -47,10 +48,8 @@ class PendingEventsViewController: UIViewController {
         
         let ref = Database.database().reference().child("pending_events")
         ref.observe(.childAdded, with: { (snapshot) in
-            
-            let eventId = snapshot.key
+             let eventId = snapshot.key
              self.fetchEventWithEventId(eventId: eventId)
-
          }, withCancel: nil)
 
          ref.observe(.childRemoved, with: { (snapshot) in
