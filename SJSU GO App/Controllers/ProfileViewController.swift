@@ -38,8 +38,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        setBackgroundColors()
         setupUserProfile()
         checkDeviceForCamera()
+    }
+    
+    func setBackgroundColors() {
+        Colors.setLightBlueColor(view: self.view)
     }
     
     func setupUserProfile() {

@@ -29,6 +29,7 @@ class EventSubmissionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundColors()
         configureTextField()
         configureTextView()
         configureImageView()
@@ -39,6 +40,10 @@ class EventSubmissionViewController: UIViewController {
         setupUserForUserEvent()
         
         setupSampleAdminEvents()
+    }
+    
+    func setBackgroundColors() {
+        Colors.setLightBlueColor(view: self.view)
     }
     
     func setupSampleAdminEvents() {

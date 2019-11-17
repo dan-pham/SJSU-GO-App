@@ -42,6 +42,7 @@ class UserEventCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        Colors.setWarmYellowColor(view: self)
         addSubview(eventImageView)
         
         // x, y, width, height anchors

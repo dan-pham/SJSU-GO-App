@@ -34,6 +34,7 @@ class PrizeTableViewController: UITableViewController
    
     override func viewDidLoad()
     {
+        setBackgroundColors()
 
         PrizeTable.dataSource = self
         PrizeTable.delegate = self
@@ -89,6 +90,10 @@ class PrizeTableViewController: UITableViewController
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
   
+    }
+    
+    func setBackgroundColors() {
+        Colors.setLightBlueColor(view: self.view)
     }
 
 

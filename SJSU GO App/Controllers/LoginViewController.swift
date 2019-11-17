@@ -24,12 +24,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundColors()
         delegateTextFields()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         clearTextFields()
+    }
+    
+    func setBackgroundColors() {
+        Colors.setLightBlueColor(view: self.view)
     }
     
     // MARK: Actions

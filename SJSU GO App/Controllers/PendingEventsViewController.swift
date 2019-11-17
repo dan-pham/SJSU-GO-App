@@ -30,8 +30,14 @@ class PendingEventsViewController: UIViewController {
 
      override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundColors()
         setupTableView()
         observePendingEvents()
+    }
+    
+    func setBackgroundColors() {
+        Colors.setLightBlueColor(view: self.view)
+        Colors.setWarmYellowColor(view: pendingEventsTableView)
     }
     
     func setupTableView() {

@@ -44,6 +44,7 @@ class OrderHistory: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var HistoryTable: UITableView!
     override func viewDidLoad()
     {
+        setBackgroundColors()
     
         HistoryTable.rowHeight = 100
         
@@ -53,6 +54,11 @@ class OrderHistory: UIViewController, UITableViewDelegate, UITableViewDataSource
         //load user's information
         let uid = Auth.auth().currentUser!.uid
         retrieveData(childName: uid)
+    }
+    
+    func setBackgroundColors() {
+        Colors.setLightBlueColor(view: self.view)
+        Colors.setWarmYellowColor(view: HistoryTable)
     }
     
     public func retrieveData(childName: String )
