@@ -72,7 +72,6 @@ class EventSubmissionViewController: UIViewController {
         }
     }
     
-    // To be efficient, maybe only allow user to submit images. User can screenshot proof if necessary
     @IBAction func pickImageFromAlbum(_ sender: Any) {
         pick(sourceType: .photoLibrary)
     }
@@ -87,7 +86,7 @@ class EventSubmissionViewController: UIViewController {
     
     @IBAction func submitEvent(_ sender: Any) {
         guard eventTypeTextField.hasText, eventDescriptionTextView.hasText, imageView.image != nil else {
-            print("Enter the event type and description, and upload a photo of proof")
+            Alerts.showEventSubmissionFailedAlertVC(on: self)
             return
         }
         
@@ -105,13 +104,13 @@ class EventSubmissionViewController: UIViewController {
         if let uploadData = image.jpegData(compressionQuality: 0.5) {
             ref.putData(uploadData, metadata: nil) { (metadata, error) in
                 if error != nil {
-                    print("Failed to upload image: ", error!.localizedDescription)
+                    Alerts.showUploadImageFailedAlertVC(on: self, message: error!.localizedDescription)
                     return
                 }
                 
                 ref.downloadURL(completion: { (url, err) in
                     if let err = err {
-                        print("Failed to download from URL: ", err)
+                        Alerts.showDownloadUrlFailedAlertVC(on: self, message: err.localizedDescription)
                         return
                     }
                     
@@ -143,7 +142,7 @@ class EventSubmissionViewController: UIViewController {
         
         childRef.updateChildValues(values) { (error, ref) in
             if let error = error {
-                print("Error updating child values for favorites: ", error)
+                Alerts.showUpdateFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }
             

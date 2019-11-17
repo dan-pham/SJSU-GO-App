@@ -365,8 +365,7 @@ class PrizeTableViewController: UITableViewController
                             }
                             catch let err
                             {
-                                print("Error")
-                                
+                                Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                             }
                         }
                         

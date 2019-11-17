@@ -84,8 +84,7 @@ class OrderHistory: UIViewController, UITableViewDelegate, UITableViewDataSource
                             }
                             catch let err
                             {
-                                print("Error")
-                                
+                                Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                             }
                         }
                         

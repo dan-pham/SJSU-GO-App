@@ -57,7 +57,6 @@ class PendingEventDetailViewController: UIViewController {
     }
     
     func handleApproveEvent() {
-        print("Accepted")
         handleUpdateUserEventStatus(isApproved: true)
         navigationController?.popViewController(animated: true)
     }
@@ -69,7 +68,6 @@ class PendingEventDetailViewController: UIViewController {
     }
     
     func handleRejectEvent() {
-        print("Rejected")
         handleUpdateUserEventStatus(isApproved: false)
         navigationController?.popViewController(animated: true)
     }
@@ -92,7 +90,7 @@ class PendingEventDetailViewController: UIViewController {
 
         eventReference.updateChildValues(values) { (err, ref) in
             if let err = err {
-                print(err)
+                Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                 return
             }
         }
@@ -101,7 +99,7 @@ class PendingEventDetailViewController: UIViewController {
     func removeEventFromPendingEvents(_ eventId: String) {
         Database.database().reference().child("pending_events").child(eventId).removeValue { (error, ref) in
             if error != nil {
-                print("Failed to delete message: ", error)
+                Alerts.showRemoveEventFailedAlertVC(on: self, message: error!.localizedDescription)
                 return
             }
         }
@@ -129,7 +127,7 @@ class PendingEventDetailViewController: UIViewController {
 
         userReference.updateChildValues(values) { (err, ref) in
             if let err = err {
-                print(err)
+                Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                 return
             }
         }
