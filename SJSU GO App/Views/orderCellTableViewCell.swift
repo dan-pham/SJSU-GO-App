@@ -20,6 +20,7 @@ class orderCellTableViewCell: UITableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        Colors.setWarmYellowColor(view: self)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

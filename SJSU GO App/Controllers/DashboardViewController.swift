@@ -24,9 +24,15 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundColors()
         setupTableView()
         observeUserEvents()
         passUserInfoToTabBarViewController()
+    }
+    
+    func setBackgroundColors() {
+        Colors.setLightBlueColor(view: self.view)
+        Colors.setWarmYellowColor(view: eventsTableView)
     }
     
     func setupTableView() {

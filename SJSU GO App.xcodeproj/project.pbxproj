@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		647CDA6102A17EC65FF08840 /* Pods_SJSU_GO_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */; };
 		C30ECB0D2380CCAB001E4312 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30ECB0C2380CCAB001E4312 /* ActivityIndicator.swift */; };
+		C31031662381D6DD00D2EB1E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31031652381D6DD00D2EB1E /* Colors.swift */; };
 		C3453CE2230C8E88008E2BD4 /* UserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3453CE1230C8E88008E2BD4 /* UserEvent.swift */; };
 		C3453CE4230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3453CE3230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift */; };
 		C3479846225EC00E00C23F6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3479845225EC00E00C23F6B /* LoginViewController.swift */; };
@@ -51,6 +52,7 @@
 		661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.release.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.release.xcconfig"; sourceTree = "<group>"; };
 		8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SJSU_GO_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30ECB0C2380CCAB001E4312 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		C31031652381D6DD00D2EB1E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C3453CE1230C8E88008E2BD4 /* UserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvent.swift; sourceTree = "<group>"; };
 		C3453CE3230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventSubmissionViewController+handlers.swift"; sourceTree = "<group>"; };
 		C3479845225EC00E00C23F6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				C371C2A22367C266005566E0 /* Alerts.swift */,
+				C31031652381D6DD00D2EB1E /* Colors.swift */,
 				C3D81FC5230BB7C000309F23 /* SampleEvents.swift */,
 				C3657FF8230DD4D100C4B141 /* UIImageView+Additions.swift */,
 			);
@@ -372,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3479846225EC00E00C23F6B /* LoginViewController.swift in Sources */,
+				C31031662381D6DD00D2EB1E /* Colors.swift in Sources */,
 				F52D0E86236663DA000D0A46 /* order.swift in Sources */,
 				C3657FF9230DD4D100C4B141 /* UIImageView+Additions.swift in Sources */,
 				C3A7B374230A23B400AC4003 /* DashboardViewController.swift in Sources */,

@@ -22,7 +22,13 @@ class EventDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundColors()
         setupEventDetails()
+    }
+    
+    func setBackgroundColors() {
+        Colors.setLightBlueColor(view: self.view)
+        Colors.setLightBlueColor(view: eventDescriptionTextView)
     }
     
     func setupEventDetails() {
