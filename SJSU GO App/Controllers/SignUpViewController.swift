@@ -94,22 +94,38 @@ class SignUpViewController: UIViewController {
             
             let values = ["user_id": uid, "sjsu_id": sjsuId, "sjsu_email": sjsuEmail, "first_name": firstName, "last_name": lastName, "major": major, "academic_year": academicYear, "points": points] as [String: AnyObject]
             
+//            self.registerUserIntoFirestoreWithUID(uid, values: values)
             self.registerUserIntoDatabaseWithUID(uid, values: values)
         }
     }
     
+//    func registerUserIntoFirestoreWithUID(_ uid: String, values: [String: AnyObject]) {
+//        let ref = Firestore.firestore()
+//        let usersReference = ref.collection("users").document(uid)
+//        usersReference.setData(values, merge: true) { (error) in
+//            if let error = error {
+//                self.activityIndicator.hideActivityIndicator()
+//                Alerts.showCreateUserFailedAlertVC(on: self, message: error.localizedDescription)
+//                return
+//            }
+//
+//            self.activityIndicator.hideActivityIndicator()
+//            self.navigationController?.popViewController(animated: true)
+//        }
+//    }
+    
     func registerUserIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
         let ref = Database.database().reference()
         let usersReference = ref.child("users").child(uid)
-        
+
         usersReference.updateChildValues(values) { (error, ref) in
-            
+
             if let error = error {
                 self.activityIndicator.hideActivityIndicator()
                 Alerts.showCreateUserFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }
-            
+
             self.activityIndicator.hideActivityIndicator()
             self.navigationController?.popViewController(animated: true)
         }

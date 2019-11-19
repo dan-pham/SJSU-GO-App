@@ -194,6 +194,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         
         detailVC.event = event
         
+        tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(detailVC, animated: true)
     }
 
