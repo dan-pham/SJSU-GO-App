@@ -25,7 +25,7 @@ class EventSubmissionViewController: UIViewController {
     @IBOutlet weak var eventDescriptionTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class EventSubmissionViewController: UIViewController {
         configureImageView()
         configurePickerView()
         
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        cameraButton.isHidden = !UIImagePickerController.isSourceTypeAvailable(.camera)
         
         setupUserForUserEvent()
         

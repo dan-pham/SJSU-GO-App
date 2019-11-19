@@ -13,7 +13,7 @@ import Firebase
 class LoginViewController: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet weak var emailTextField: UITextField! // Change to email
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
