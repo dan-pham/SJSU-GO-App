@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="149.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbx-Kb-6sy">
@@ -26,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpJ-2v-VM1">
-                        <rect key="frame" x="150" y="0.0" width="150" height="21"/>
+                        <rect key="frame" x="150" y="0.0" width="150" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="JOn-pD-S46"/>
                         </constraints>
@@ -35,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vS4-df-bz7">
-                        <rect key="frame" x="150" y="99" width="150" height="50"/>
+                        <rect key="frame" x="150" y="100" width="150" height="50"/>
                         <color key="backgroundColor" red="0.76130943380000005" green="0.97910052830000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="GnE-Ya-gOT"/>
@@ -43,6 +41,7 @@
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="jRY-LM-11b"/>
                             <constraint firstAttribute="width" constant="150" id="klA-V0-5he"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <state key="normal" title="Claim"/>
                         <connections>
                             <action selector="Claim:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NNN-hh-4Sn"/>

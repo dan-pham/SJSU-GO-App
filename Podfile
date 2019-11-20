@@ -9,5 +9,6 @@ target 'SJSU GO App' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 
 end
