@@ -168,7 +168,7 @@ class ProfileViewController: UIViewController {
     
     func checkDeviceForCamera() {
         qrCodeScannerButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        qrCodeScannerButton.backgroundColor = qrCodeScannerButton.isEnabled ? UIColor.blue : UIColor.lightGray
+        //qrCodeScannerButton.backgroundColor = qrCodeScannerButton.isEnabled ? UIColor.blue : UIColor.lightGray
     }
     
     @IBAction func openQRCodeScanner(_ sender: Any) {

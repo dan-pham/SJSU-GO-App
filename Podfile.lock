@@ -85,21 +85,20 @@ DEPENDENCIES:
   - Firebase/Storage
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
+    - BoringSSL-GRPC
     - Firebase
     - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseDatabase
+    - FirebaseFirestore
     - FirebaseStorage
     - GoogleUtilities
-    - GTMSessionFetcher
-    - leveldb-library
-  trunk:
-    - BoringSSL-GRPC
-    - FirebaseFirestore
     - "gRPC-C++"
     - gRPC-Core
+    - GTMSessionFetcher
+    - leveldb-library
     - nanopb
     - Protobuf
 

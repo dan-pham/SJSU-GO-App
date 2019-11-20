@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		647CDA6102A17EC65FF08840 /* Pods_SJSU_GO_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */; };
 		C30ECB0D2380CCAB001E4312 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30ECB0C2380CCAB001E4312 /* ActivityIndicator.swift */; };
 		C31031662381D6DD00D2EB1E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31031652381D6DD00D2EB1E /* Colors.swift */; };
 		C3453CE2230C8E88008E2BD4 /* UserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3453CE1230C8E88008E2BD4 /* UserEvent.swift */; };
@@ -21,6 +20,7 @@
 		C376C67E225E9D8900644468 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C376C67D225E9D8900644468 /* GoogleService-Info.plist */; };
 		C3A7B372230A22D100AC4003 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B371230A22D100AC4003 /* TabBarViewController.swift */; };
 		C3A7B374230A23B400AC4003 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B373230A23B400AC4003 /* DashboardViewController.swift */; };
+		C3C08EF5507099E53E061289 /* Pods_SJSU_GO_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5C7EAF70A5044C1023669A /* Pods_SJSU_GO_App.framework */; };
 		C3C86B792304DAA900F87A80 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C86B782304DAA900F87A80 /* User.swift */; };
 		C3D81FC4230B936B00309F23 /* EventSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D81FC3230B936B00309F23 /* EventSubmissionViewController.swift */; };
 		C3D81FC6230BB7C000309F23 /* SampleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D81FC5230BB7C000309F23 /* SampleEvents.swift */; };
@@ -49,8 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.release.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.release.xcconfig"; sourceTree = "<group>"; };
-		8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SJSU_GO_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B0062784F21AE379A647A86 /* Pods-SJSU GO App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.debug.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.debug.xcconfig"; sourceTree = "<group>"; };
+		9C5C7EAF70A5044C1023669A /* Pods_SJSU_GO_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SJSU_GO_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30ECB0C2380CCAB001E4312 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		C31031652381D6DD00D2EB1E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C3453CE1230C8E88008E2BD4 /* UserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvent.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		C3ECE7112310B53E00FED0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C3ECE7132310BC3100FED0BC /* PendingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingEventsViewController.swift; sourceTree = "<group>"; };
 		C3ECE7152310BC7500FED0BC /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
-		CA1DB7B20E31F553BC8D8916 /* Pods-SJSU GO App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.debug.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.debug.xcconfig"; sourceTree = "<group>"; };
+		F09FEDD2304A3A853C46799D /* Pods-SJSU GO App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSU GO App.release.xcconfig"; path = "Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App.release.xcconfig"; sourceTree = "<group>"; };
 		F519BABC2341702800A53068 /* OtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
 		F519BABD2341702800A53068 /* OtherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherCell.xib; sourceTree = "<group>"; };
 		F519BAC02341810300A53068 /* OrderPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPopUpViewController.swift; sourceTree = "<group>"; };
@@ -99,30 +99,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				647CDA6102A17EC65FF08840 /* Pods_SJSU_GO_App.framework in Frameworks */,
+				C3C08EF5507099E53E061289 /* Pods_SJSU_GO_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0811F30F82BB21850228FF88 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CA1DB7B20E31F553BC8D8916 /* Pods-SJSU GO App.debug.xcconfig */,
-				661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		9F90408F63FA7A4C5F640E17 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8990F773BAA9D3F4AF1BC957 /* Pods_SJSU_GO_App.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C3479847225EC08400C23F6B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,8 +199,8 @@
 			children = (
 				C3E9607122387A4D002E19BF /* SJSU GO App */,
 				C3E9607022387A4D002E19BF /* Products */,
-				0811F30F82BB21850228FF88 /* Pods */,
-				9F90408F63FA7A4C5F640E17 /* Frameworks */,
+				EC93BACE02B2445FA61752F2 /* Pods */,
+				F841A976064F6BC3B839109D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,6 +227,24 @@
 			path = "SJSU GO App";
 			sourceTree = "<group>";
 		};
+		EC93BACE02B2445FA61752F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B0062784F21AE379A647A86 /* Pods-SJSU GO App.debug.xcconfig */,
+				F09FEDD2304A3A853C46799D /* Pods-SJSU GO App.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F841A976064F6BC3B839109D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C5C7EAF70A5044C1023669A /* Pods_SJSU_GO_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,11 +252,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3E9608122387A4F002E19BF /* Build configuration list for PBXNativeTarget "SJSU GO App" */;
 			buildPhases = (
-				7C5C52201422F3501C5D8E99 /* [CP] Check Pods Manifest.lock */,
+				3B70A395CA1B514F69A6303F /* [CP] Check Pods Manifest.lock */,
 				C3E9606B22387A4D002E19BF /* Sources */,
 				C3E9606C22387A4D002E19BF /* Frameworks */,
 				C3E9606D22387A4D002E19BF /* Resources */,
-				C45FC7665491B45177D28D6A /* [CP] Embed Pods Frameworks */,
+				17021062FF6F16908A98C1FC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,7 +320,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7C5C52201422F3501C5D8E99 /* [CP] Check Pods Manifest.lock */ = {
+		17021062FF6F16908A98C1FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B70A395CA1B514F69A6303F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,23 +357,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C45FC7665491B45177D28D6A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SJSU GO App/Pods-SJSU GO App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -538,19 +539,19 @@
 		};
 		C3E9608222387A4F002E19BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA1DB7B20E31F553BC8D8916 /* Pods-SJSU GO App.debug.xcconfig */;
+			baseConfigurationReference = 0B0062784F21AE379A647A86 /* Pods-SJSU GO App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6YZ86R5K6;
+				DEVELOPMENT_TEAM = 7GVSYF5F73;
 				INFOPLIST_FILE = "$(SRCROOT)/SJSU GO App/plists/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.danpham.SJSUGOApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonyminaise.SJSUGOApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -560,19 +561,19 @@
 		};
 		C3E9608322387A4F002E19BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 661DFE8ABF41CE6EBCE927D8 /* Pods-SJSU GO App.release.xcconfig */;
+			baseConfigurationReference = F09FEDD2304A3A853C46799D /* Pods-SJSU GO App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6YZ86R5K6;
+				DEVELOPMENT_TEAM = 7GVSYF5F73;
 				INFOPLIST_FILE = "$(SRCROOT)/SJSU GO App/plists/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.danpham.SJSUGOApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonyminaise.SJSUGOApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
