@@ -31,8 +31,12 @@ In the Prizes tab, the user can select prizes to redeem. The user is only able t
 
 In the Profile tab, the user can click the "Order History" button to see all the prizes they have claimed. The user is able to select a profile image by pressing on the image and update it as often as they choose by repeating the same action.
 
-<img src="Screenshots/OrderHistory.png" height="500" width="250">
+<img src="Screenshots/Profile.PNG" height="500" width="250"> <img src="Screenshots/OrderHistory.png" height="500" width="250">
 
 If the login account has administrative privileges, the admin will be taken to the Pending Events screen. On this screen, the admin can see all currently pending events. Clicking on an event will present the admin with the user details and event details. The admin can reject or approve the event from this screen. Choosing one of those options will prompt the admin with a confirmation alert. If the admin chooses to approve the event, the user who submitted the event will receive points for it. If the admin chooses to reject the event, the user will not receive points for it. Once a decision has been made, the event's status is changed from "Pending" to either "Rejected" or "Approved" and removed from the Pending Events table.
 
 <img src="Screenshots/PendingEvents.PNG" height="500" width="250"> <img src="Screenshots/PendingDetail.png" height="500" width="250"> <img src="Screenshots/PendingDetailApprove.png" height="500" width="250">
+
+In the Settings, the admin can decide when to open and close the current prize session. Since the prize session should only be open during the last two months of Spring and Fall semesters, the admin can control it with a simple switch. The admin is also able to transfer control over to another user. Since there should only be one admin at any given time, the current admin gives up his or her current admin privileges and raises the other user's privilege to that of an admin.
+
+<img src="Screenshots/AdminSettings.PNG" height="500" width="250">
