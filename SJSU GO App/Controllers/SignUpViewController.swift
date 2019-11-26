@@ -75,24 +75,25 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        activityIndicator.showActivityIndicator()
+        activityIndicator.showActivityIndicator(self)
         
         Auth.auth().createUser(withEmail: sjsuEmail, password: sjsuPassword) { (user, error) in
             
             if error != nil {
-                self.activityIndicator.hideActivityIndicator()
+                self.activityIndicator.hideActivityIndicator(self)
                 Alerts.showCreateUserFailedAlertVC(on: self, message: error!.localizedDescription)
                 return
             }
             
             guard let uid = user?.user.uid else {
-                self.activityIndicator.hideActivityIndicator()
+                self.activityIndicator.hideActivityIndicator(self)
                 return
             }
             
             let points = 0
+            let privilege = "User"
             
-            let values = ["user_id": uid, "sjsu_id": sjsuId, "sjsu_email": sjsuEmail, "first_name": firstName, "last_name": lastName, "major": major, "academic_year": academicYear, "points": points] as [String: AnyObject]
+            let values = ["user_id": uid, "sjsu_id": sjsuId, "sjsu_email": sjsuEmail, "first_name": firstName, "last_name": lastName, "major": major, "academic_year": academicYear, "points": points, "privilege": privilege] as [String: AnyObject]
             
 //            self.registerUserIntoFirestoreWithUID(uid, values: values)
             self.registerUserIntoDatabaseWithUID(uid, values: values)
@@ -121,12 +122,12 @@ class SignUpViewController: UIViewController {
         usersReference.updateChildValues(values) { (error, ref) in
 
             if let error = error {
-                self.activityIndicator.hideActivityIndicator()
+                self.activityIndicator.hideActivityIndicator(self)
                 Alerts.showCreateUserFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }
 
-            self.activityIndicator.hideActivityIndicator()
+            self.activityIndicator.hideActivityIndicator(self)
             self.navigationController?.popViewController(animated: true)
         }
     }

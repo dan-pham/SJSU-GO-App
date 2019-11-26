@@ -42,6 +42,14 @@ class EventSubmissionViewController: UIViewController {
         setupSampleAdminEvents()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            if touch.phase == UITouch.Phase.began {
+                eventDescriptionTextView.resignFirstResponder()
+            }
+        }
+    }
+    
     func setBackgroundColors() {
         Colors.setLightBlueColor(view: self.view)
     }
@@ -75,6 +83,7 @@ class EventSubmissionViewController: UIViewController {
                 self.user.email = dictionary["sjsu_email"] as? String
                 self.user.academicYear = dictionary["academic_year"] as? String
                 self.user.sjsuId = dictionary["sjsu_id"] as? String
+                self.user.userId = dictionary["user_id"] as? String
             }
         }
     }
@@ -97,12 +106,12 @@ class EventSubmissionViewController: UIViewController {
             return
         }
         
-        activityIndicator.showActivityIndicator()
+        activityIndicator.showActivityIndicator(self)
         
         let image = imageView.image!
         uploadImageToFirebaseStorage(image) { (imageUrl) in
             self.saveUserEventWithImageUrl(imageUrl)
-            self.activityIndicator.hideActivityIndicator()
+            self.activityIndicator.hideActivityIndicator(self)
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -114,14 +123,14 @@ class EventSubmissionViewController: UIViewController {
         if let uploadData = image.jpegData(compressionQuality: 0.5) {
             ref.putData(uploadData, metadata: nil) { (metadata, error) in
                 if error != nil {
-                    self.activityIndicator.hideActivityIndicator()
+                    self.activityIndicator.hideActivityIndicator(self)
                     Alerts.showUploadImageFailedAlertVC(on: self, message: error!.localizedDescription)
                     return
                 }
                 
                 ref.downloadURL(completion: { (url, err) in
                     if let err = err {
-                        self.activityIndicator.hideActivityIndicator()
+                        self.activityIndicator.hideActivityIndicator(self)
                         Alerts.showDownloadUrlFailedAlertVC(on: self, message: err.localizedDescription)
                         return
                     }
@@ -145,7 +154,7 @@ class EventSubmissionViewController: UIViewController {
         userEvent.id = childRef.key
         
         // Event attributes
-        var values: [String: AnyObject] = ["id": userEvent.id as AnyObject, "user_first_name": userEvent.user?.firstName as AnyObject, "user_last_name": userEvent.user?.lastName as AnyObject, "user_major": userEvent.user?.major as AnyObject, "user_email": userEvent.user?.email as AnyObject, "user_academic_year": userEvent.user?.academicYear as AnyObject, "user_sjsu_id": userEvent.user?.sjsuId as AnyObject, "event_type": userEvent.eventType as AnyObject, "event_description": userEvent.eventDescription as AnyObject, "points": userEvent.points as AnyObject, "is_approved_by_admin": userEvent.isApprovedByAdmin as AnyObject]
+        var values: [String: AnyObject] = ["id": userEvent.id as AnyObject, "user_first_name": userEvent.user?.firstName as AnyObject, "user_last_name": userEvent.user?.lastName as AnyObject, "user_major": userEvent.user?.major as AnyObject, "user_email": userEvent.user?.email as AnyObject, "user_academic_year": userEvent.user?.academicYear as AnyObject, "user_sjsu_id": userEvent.user?.sjsuId as AnyObject, "user_user_id": userEvent.user?.userId as AnyObject, "event_type": userEvent.eventType as AnyObject, "event_description": userEvent.eventDescription as AnyObject, "points": userEvent.points as AnyObject, "is_approved_by_admin": userEvent.isApprovedByAdmin as AnyObject]
         
         // Image attribute
         let properties: [String: AnyObject] = ["image_url": imageUrl as AnyObject]
@@ -154,7 +163,7 @@ class EventSubmissionViewController: UIViewController {
         
         childRef.updateChildValues(values) { (error, ref) in
             if let error = error {
-                self.activityIndicator.hideActivityIndicator()
+                self.activityIndicator.hideActivityIndicator(self)
                 Alerts.showUpdateFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }

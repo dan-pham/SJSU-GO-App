@@ -63,7 +63,7 @@ class OrderHistory: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     public func retrieveData(childName: String )
     {
-        activityIndicator.showActivityIndicator()
+        activityIndicator.showActivityIndicator(self)
         
         ref = Database.database().reference().child("orders").child(childName)
         
@@ -102,7 +102,7 @@ class OrderHistory: UIViewController, UITableViewDelegate, UITableViewDataSource
                 }
                 
                 self.HistoryTable.reloadData()
-                self.activityIndicator.hideActivityIndicator()
+                self.activityIndicator.hideActivityIndicator(self)
         })
         
         

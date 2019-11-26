@@ -18,6 +18,7 @@ class User: NSObject {
     var academicYear: String?
     var profileImageUrl: String?
     var points: Int?
+    var privilege: String?
 }
 
 

@@ -51,7 +51,9 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     @IBAction func logOut(_ sender: Any) {
         // TODO: Place an alert to confirm logout
-        handleLogOut()
+        Alerts.showSignOutAlertVC(on: self, action: (UIAlertAction(title: "Log Out", style: .default) {_ in
+            self.handleLogOut()
+        }))
     }
     
     @objc func handleLogOut() {

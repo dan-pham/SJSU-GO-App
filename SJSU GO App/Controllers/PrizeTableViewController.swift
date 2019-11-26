@@ -27,70 +27,101 @@ class PrizeTableViewController: UITableViewController
     var prizeList = [prizemodel]()
     var ref: DatabaseReference!
     var points = 0
+    var status = String()
+    var section = String()
     
     let activityIndicator = ActivityIndicator()
     
     @IBOutlet var PrizeTable: UITableView!
    
-    override func viewDidLoad()
-    {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setBackgroundColors()
-
-        PrizeTable.dataSource = self
-        PrizeTable.delegate = self
-        PrizeTable.separatorStyle = .none
-        // set backgroud of tableView
-        /*
-        let backgroundImage = UIImage(named: "sjsu_go_logo")
-        let imageView = UIImageView(image: backgroundImage)
-        self.tableView.backgroundView = imageView
-        */
-        /// declare the cell types that going to use 
-        let TierCell = UINib(nibName: "TierCell", bundle: nil)
-        PrizeTable.register(TierCell, forCellReuseIdentifier: "TierCell")
-        
-        let clothingCell = UINib(nibName: "clothingPrizeCell", bundle: nil)
-        PrizeTable.register(clothingCell, forCellReuseIdentifier: "clothingPrizeCell")
-        
-        let OtherCell = UINib(nibName: "OtherCell", bundle: nil)
-        PrizeTable.register(OtherCell, forCellReuseIdentifier: "OtherCell")
-        
-        //load user's information
-        let uid = Auth.auth().currentUser!.uid
-        let ref = Database.database().reference().child("users").child(uid)
-        
-        activityIndicator.showActivityIndicator()
-        
-        ref.observeSingleEvent(of: .value)
-        { (snapshot) in
-            
-            if let dictionary = snapshot.value as? [String: AnyObject]
-            {
-                
-                self.user.firstName = dictionary["first_name"] as? String
-                self.user.lastName = dictionary["last_name"] as? String
-                self.user.major = dictionary["major"] as? String
-                self.user.email = dictionary["sjsu_email"] as? String
-                self.user.academicYear = dictionary["academic_year"] as? String
-                self.user.sjsuId = dictionary["sjsu_id"] as? String
-                self.user.points = dictionary["points"] as? Int ?? 0
-                self.points = dictionary["points"] as? Int ?? 0
-
-            }
+        if section == "closed" {
+            Alerts.showPrizeSessionClosedAlertVC(on: self)
         }
-            
-            retrieveData(childName: "Tier1")
-            retrieveData(childName: "Tier2")
-            retrieveData(childName: "Tier3")
-        
-        activityIndicator.hideActivityIndicator()
-       
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-  
     }
+    
+    override func viewDidLoad() {
+          
+        // check if priceSection open
+        ref = Database.database().reference()
+          
+        //activityIndicator.showActivityIndicator()
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+              
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                  self.section = dictionary["PrizeSession"] as? String ?? ""
+
+                  if (self.section == "open") {
+                      ////
+                      //self.activityIndicator.showActivityIndicator()
+                      
+                      self.PrizeTable.dataSource = self
+                      self.PrizeTable.delegate = self
+                      self.PrizeTable.separatorStyle = .none
+                      // set backgroud of tableView
+                      /*
+                       let backgroundImage = UIImage(named: "sjsu_go_logo")
+                       let imageView = UIImageView(image: backgroundImage)
+                       self.tableView.backgroundView = imageView
+                       */
+                      
+                      /// declare the cell types that going to use
+                      let TierCell = UINib(nibName: "TierCell", bundle: nil)
+                      self.PrizeTable.register(TierCell, forCellReuseIdentifier: "TierCell")
+                      
+                      let clothingCell = UINib(nibName: "clothingPrizeCell", bundle: nil)
+                      self.PrizeTable.register(clothingCell, forCellReuseIdentifier: "clothingPrizeCell")
+                      
+                      let OtherCell = UINib(nibName: "OtherCell", bundle: nil)
+                      self.PrizeTable.register(OtherCell, forCellReuseIdentifier: "OtherCell")
+                      
+                      //load user's information
+                      let uid = Auth.auth().currentUser!.uid
+                      self.ref = Database.database().reference().child("users").child(uid)
+                      
+                      self.activityIndicator.showActivityIndicator(self)
+                      
+                      self.ref.observeSingleEvent(of: .value) { (snapshot) in
+                          
+                          if let dictionary = snapshot.value as? [String: AnyObject]
+                          {
+                              print (dictionary)
+                              self.user.firstName = dictionary["first_name"] as? String
+                              self.user.lastName = dictionary["last_name"] as? String
+                              self.user.major = dictionary["major"] as? String
+                              self.user.email = dictionary["sjsu_email"] as? String
+                              self.user.academicYear = dictionary["academic_year"] as? String
+                              self.user.sjsuId = dictionary["sjsu_id"] as? String
+                              self.user.points = dictionary["points"] as? Int ?? 0
+                              self.points = dictionary["points"] as? Int ?? 0
+                          }
+                      }
+                      
+                      self.retrieveData(childName: "Tier1")
+                      self.retrieveData(childName: "Tier2")
+                      self.retrieveData(childName: "Tier3")
+                      
+                      self.activityIndicator.hideActivityIndicator(self)
+                      
+                  } else {
+                      // it is closed
+                      let alert = UIAlertController(title: "Session is Closed", message: "Prize Session is curretly closed, the time for reopen will be posted later. check back later!", preferredStyle: UIAlertController.Style.alert)
+                      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { ACTION in
+                          alert.dismiss(animated: true, completion: nil)
+                          
+                      }))
+                      self.present(alert, animated: true, completion: nil)
+                  }
+              }
+          }
+        
+          // Uncomment the following line to preserve selection between presentations
+          // self.clearsSelectionOnViewWillAppear = false
+          // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+          // self.navigationItem.rightBarButtonItem = self.editButtonItem
+      }
     
     func setBackgroundColors() {
         Colors.setLightBlueColor(view: self.view)
@@ -375,7 +406,7 @@ class PrizeTableViewController: UITableViewController
                             }
                             catch let err
                             {
-                                self.activityIndicator.hideActivityIndicator()
+                                self.activityIndicator.hideActivityIndicator(self)
                                 Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                             }
                         }

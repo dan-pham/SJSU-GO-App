@@ -21,7 +21,8 @@ class ActivityIndicator: NSObject {
     
     let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
     
-    func showActivityIndicator() {
+    func showActivityIndicator(_ vc: UIViewController) {
+        print("Show activity indicator: \(vc)")
         if let window = UIApplication.shared.keyWindow {
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
             blackView.frame = CGRect(x: 0, y: statusBarHeight, width: window.frame.width, height: window.frame.height - statusBarHeight)
@@ -37,7 +38,8 @@ class ActivityIndicator: NSObject {
         }
     }
     
-    func hideActivityIndicator() {
+    func hideActivityIndicator(_ vc: UIViewController) {
+        print("Hide activity indicator: \(vc)")
         activityIndicatorView.stopAnimating()
         blackView.removeFromSuperview()
     }

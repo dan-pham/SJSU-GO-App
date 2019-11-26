@@ -10,19 +10,21 @@ import Foundation
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
-    
+class LoginViewController: UIViewController
+{
     // MARK: Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    var userPrivilege = String()
     let activityIndicator = ActivityIndicator()
     
     // MARK: Life Cycle
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setBackgroundColors()
         delegateTextFields()
@@ -39,7 +41,8 @@ class LoginViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func logIn(_ sender: Any) {
+    @IBAction func logIn(_ sender: Any)
+    {
         
         guard emailTextField.hasText && passwordTextField.hasText else {
             Alerts.showSignInFailedAlertVC(on: self)
@@ -51,22 +54,44 @@ class LoginViewController: UIViewController {
             return
         }
         
-        activityIndicator.showActivityIndicator()
+        activityIndicator.showActivityIndicator(self)
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
-            if let error = error {
-                self.activityIndicator.hideActivityIndicator()
+            if let error = error
+            {
+                self.activityIndicator.hideActivityIndicator(self)
                 Alerts.showAuthenticateUserFailedAlertVC(on: self, message: error.localizedDescription)
                 return
             }
             
-            self.activityIndicator.hideActivityIndicator()
-            
-            let tabBarNavController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarNavController")
-            self.present(tabBarNavController!, animated: true)
+            /// after authentication, see if user is an admin
+             let uid = Auth.auth().currentUser!.uid
+             let ref = Database.database().reference().child("users").child(uid)
+
+             ref.observeSingleEvent(of: .value) { (snapshot) in
+
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    self.userPrivilege = dictionary["privilege"] as? String ?? "User"
+                    print ("self.userPrivilege is " + self.userPrivilege);
+                }
+
+                if self.userPrivilege == "Admin" {
+                    print ("Admin login");
+                    self.activityIndicator.hideActivityIndicator(self)
+                    let pendingEventsVC = self.storyboard?.instantiateViewController(withIdentifier: "PendingEventsViewController")
+
+                    self.navigationController?.navigationBar.isHidden = true
+                    self.navigationController?.pushViewController(pendingEventsVC!, animated: true)
+                } else {
+                    self.activityIndicator.hideActivityIndicator(self)
+                    let tabBarNavController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarNavController")
+                    self.present(tabBarNavController!, animated: true)
+                }
+            }
+
         }
-        
+            
     }
     
     @IBAction func signUp(_ sender: Any) {

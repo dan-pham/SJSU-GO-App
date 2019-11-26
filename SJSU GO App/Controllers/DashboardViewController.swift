@@ -22,6 +22,37 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var eventsTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        checkIfAdminIsLoggedIn()
+    }
+    
+    var userPrivilege = String()
+    
+    func checkIfAdminIsLoggedIn() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference().child("users").child(uid)
+
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.userPrivilege = dictionary["privilege"] as? String ?? "User"
+                print("self.userPrivilege is " + self.userPrivilege);
+            }
+
+            if self.userPrivilege == "Admin" {
+                print("Admin login");
+                self.activityIndicator.hideActivityIndicator(self)
+                let pendingEventsVC = self.storyboard?.instantiateViewController(withIdentifier: "PendingEventsViewController")
+
+                self.navigationController?.navigationBar.isHidden = true
+                self.navigationController?.pushViewController(pendingEventsVC!, animated: true)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColors()
@@ -39,10 +70,22 @@ class DashboardViewController: UIViewController {
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
         eventsTableView.register(UserEventCell.self, forCellReuseIdentifier: cellId)
+        eventsTableView.addSubview(self.refreshControl)
         
         events.removeAll()
         eventsDictionary.removeAll()
         eventsTableView.reloadData()
+    }
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh(refreshControl: UIRefreshControl) {
+        observeUserEvents()
+        refreshControl.endRefreshing()
     }
     
     func observeUserEvents() {
@@ -50,7 +93,7 @@ class DashboardViewController: UIViewController {
             return
         }
         
-        activityIndicator.showActivityIndicator()
+        activityIndicator.showActivityIndicator(self)
         
         retrieveUserDetailsFromFirebase(uid: uid)
         
@@ -60,7 +103,8 @@ class DashboardViewController: UIViewController {
             let eventId = snapshot.key
             self.fetchEventWithEventId(eventId: eventId)
             
-        }, withCancel: nil)
+        }, withCancel: .none)
+        activityIndicator.hideActivityIndicator(self)
     }
     
     func fetchEventWithEventId(eventId: String) {
@@ -102,7 +146,7 @@ class DashboardViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.eventsTableView.reloadData()
-            self.activityIndicator.hideActivityIndicator()
+            self.activityIndicator.hideActivityIndicator(self)
         }
     }
     

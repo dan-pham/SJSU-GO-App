@@ -20,16 +20,23 @@ class PendingEventDetailViewController: UIViewController {
     @IBOutlet weak var eventDescriptionTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var pointsStackView: UIStackView!
+    @IBOutlet weak var pointsTextField: UITextField!
+    @IBOutlet weak var pointsPickerView: UIPickerView!
+    
     var event = UserEvent()
+    var userId = String()
     var startingImageView: UIImageView?
     var blackBackgroundView: UIView?
     var startingFrame: CGRect?
     
     let activityIndicator = ActivityIndicator()
+    let points = ["5", "10", "15", "60"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColors()
+        configurePickerView()
         setupEventDetails()
     }
     
@@ -38,16 +45,26 @@ class PendingEventDetailViewController: UIViewController {
         Colors.setLightBlueColor(view: eventDescriptionTextView)
     }
     
+    func configurePickerView() {
+        pointsPickerView.delegate = self
+        pointsPickerView.dataSource = self
+        pointsPickerView.isHidden = true
+    }
+    
     func setupEventDetails() {
         if let user = event.user {
             nameLabel.text = "\(user.firstName!) \(user.lastName!)"
             majorLabel.text = user.major
             idLabel.text = user.sjsuId
             academicYearLabel.text = user.academicYear
+            userId = user.userId!
         }
         
         eventTypeLabel.text = event.eventType
         eventDescriptionTextView.text = event.eventDescription
+        
+        pointsStackView.isHidden = eventTypeLabel.text == "Other" ? false : true
+        delegateTextFields()
         
         imageView.image = event.image
         imageView.isUserInteractionEnabled = true
@@ -65,9 +82,29 @@ class PendingEventDetailViewController: UIViewController {
     }
     
     func handleApproveEvent() {
-        activityIndicator.showActivityIndicator()
+        if eventTypeLabel.text == "Other" {
+            guard pointsTextField.hasText else {
+                Alerts.showPointsAlertVC(on: self)
+                return
+            }
+            
+            switch pointsTextField.text {
+            case "5":
+                event.points = 5
+            case "10":
+                event.points = 10
+            case "15":
+                event.points = 15
+            case "60":
+                event.points = 60
+            default:
+                event.points = 0
+            }
+        }
+        
+        activityIndicator.showActivityIndicator(self)
         handleUpdateUserEventStatus(isApproved: true)
-        activityIndicator.hideActivityIndicator()
+        activityIndicator.hideActivityIndicator(self)
         navigationController?.popViewController(animated: true)
     }
     
@@ -78,9 +115,9 @@ class PendingEventDetailViewController: UIViewController {
     }
     
     func handleRejectEvent() {
-        activityIndicator.showActivityIndicator()
+        activityIndicator.showActivityIndicator(self)
         handleUpdateUserEventStatus(isApproved: false)
-        activityIndicator.hideActivityIndicator()
+        activityIndicator.hideActivityIndicator(self)
         navigationController?.popViewController(animated: true)
     }
     
@@ -102,7 +139,7 @@ class PendingEventDetailViewController: UIViewController {
 
         eventReference.updateChildValues(values) { (err, ref) in
             if let err = err {
-                self.activityIndicator.hideActivityIndicator()
+                self.activityIndicator.hideActivityIndicator(self)
                 Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                 return
             }
@@ -112,7 +149,7 @@ class PendingEventDetailViewController: UIViewController {
     func removeEventFromPendingEvents(_ eventId: String) {
         Database.database().reference().child("pending_events").child(eventId).removeValue { (error, ref) in
             if error != nil {
-                self.activityIndicator.hideActivityIndicator()
+                self.activityIndicator.hideActivityIndicator(self)
                 Alerts.showRemoveEventFailedAlertVC(on: self, message: error!.localizedDescription)
                 return
             }
@@ -120,16 +157,16 @@ class PendingEventDetailViewController: UIViewController {
     }
 
     func calculateUserPointsFromFirebase() {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-
-        let userReference = Database.database().reference().child("users").child(uid)
+//        guard let uid = Auth.auth().currentUser?.uid else {
+//            return
+//        }
+        
+        let userReference = Database.database().reference().child("users").child(userId)
         userReference.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let userPoints = dictionary["points"] as? Int ?? 0
                 let points: Int = userPoints + self.event.points!
-                self.handleUpdateUserPoints(uid, points: points)
+                self.handleUpdateUserPoints(self.userId, points: points)
             }
         }, withCancel: nil)
     }
@@ -141,11 +178,61 @@ class PendingEventDetailViewController: UIViewController {
 
         userReference.updateChildValues(values) { (err, ref) in
             if let err = err {
-                self.activityIndicator.hideActivityIndicator()
+                self.activityIndicator.hideActivityIndicator(self)
                 Alerts.showUpdateFailedAlertVC(on: self, message: err.localizedDescription)
                 return
             }
         }
+    }
+    
+}
+
+// MARK: - UITextField
+
+extension PendingEventDetailViewController: UITextFieldDelegate {
+    func delegateTextFields() {
+        pointsTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (textField == pointsTextField) {
+            pointsPickerView.reloadAllComponents()
+            pointsPickerView.isHidden = false
+            textField.endEditing(true)
+        } else {
+            pointsPickerView.isHidden = true
+        }
+    }
+}
+
+// MARK: - UIPickerView
+
+extension PendingEventDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return points.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return points[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pointsTextField.text = points[row]
+        
+        perform(#selector(hidePickerView), with: nil, afterDelay: 1)
+    }
+    
+    @objc func hidePickerView() {
+        pointsPickerView.isHidden = true
     }
     
 }

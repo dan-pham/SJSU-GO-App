@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 
-class PendingEventsViewController: UIViewController {
+class PendingEventsViewController: UIViewController
+{
     
     @IBOutlet weak var pendingEventsTableView: UITableView!
     
@@ -44,16 +45,28 @@ class PendingEventsViewController: UIViewController {
         pendingEventsTableView.delegate = self
         pendingEventsTableView.dataSource = self
         pendingEventsTableView.register(UserEventCell.self, forCellReuseIdentifier: cellId)
+        pendingEventsTableView.addSubview(self.refreshControl)
         
         pendingEvents.removeAll()
         pendingEventsDictionary.removeAll()
         pendingEventsTableView.reloadData()
     }
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh(refreshControl: UIRefreshControl) {
+        observePendingEvents()
+        refreshControl.endRefreshing()
+    }
+    
     func observePendingEvents() {
         
         // TODO: Implement a check so that all events except the user's displays in pending events
-        activityIndicator.showActivityIndicator()
+        activityIndicator.showActivityIndicator(self)
         
         let ref = Database.database().reference().child("pending_events")
         ref.observe(.childAdded, with: { (snapshot) in
@@ -100,11 +113,12 @@ class PendingEventsViewController: UIViewController {
     }
     
     func createUserFromDictionary(_ dictionary: [String: AnyObject]) {
-         user.firstName = dictionary["user_first_name"] as? String
-         user.lastName = dictionary["user_last_name"] as? String
-         user.major = dictionary["user_major"] as? String
-         user.academicYear = dictionary["user_academic_year"] as? String
-         user.sjsuId = dictionary["user_sjsu_id"] as? String
+        user.firstName = dictionary["user_first_name"] as? String
+        user.lastName = dictionary["user_last_name"] as? String
+        user.major = dictionary["user_major"] as? String
+        user.academicYear = dictionary["user_academic_year"] as? String
+        user.sjsuId = dictionary["user_sjsu_id"] as? String
+        user.userId = dictionary["user_user_id"] as? String
      }
     
      func handleReloadTable() {
@@ -116,12 +130,25 @@ class PendingEventsViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.pendingEventsTableView.reloadData()
-            self.activityIndicator.hideActivityIndicator()
+            self.activityIndicator.hideActivityIndicator(self)
         }
     }
     
-    @IBAction func doneWithPendingEvents(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        let adminSettingsVC = storyboard?.instantiateViewController(withIdentifier: "AdminSettingViewController") as! AdminSettingViewController
+        
+                navigationController?.pushViewController(adminSettingsVC, animated: true)
+    }
+    
+    @IBAction func logOut(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError {
+            Alerts.showLogOutErrorAlertVC(on: self, message: signOutError.localizedDescription)
+        }
+            
+        let loginNC = storyboard?.instantiateViewController(withIdentifier: "loginNavController")
+        present(loginNC!, animated: true, completion: nil)
     }
     
 }
@@ -144,6 +171,7 @@ extension PendingEventsViewController: UITableViewDelegate, UITableViewDataSourc
        
        return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = storyboard?.instantiateViewController(withIdentifier: "PendingEventDetailViewController") as! PendingEventDetailViewController
         let event = pendingEvents[indexPath.item]
@@ -152,4 +180,5 @@ extension PendingEventsViewController: UITableViewDelegate, UITableViewDataSourc
         
         navigationController?.pushViewController(detailVC, animated: true)
     }
+    
 }

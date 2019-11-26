@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		C376C67E225E9D8900644468 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C376C67D225E9D8900644468 /* GoogleService-Info.plist */; };
 		C3A7B372230A22D100AC4003 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B371230A22D100AC4003 /* TabBarViewController.swift */; };
 		C3A7B374230A23B400AC4003 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7B373230A23B400AC4003 /* DashboardViewController.swift */; };
+		C3B86230238C8FE1009E59A6 /* AdminSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B8622F238C8FE1009E59A6 /* AdminSettingViewController.swift */; };
 		C3C86B792304DAA900F87A80 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C86B782304DAA900F87A80 /* User.swift */; };
 		C3D81FC4230B936B00309F23 /* EventSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D81FC3230B936B00309F23 /* EventSubmissionViewController.swift */; };
 		C3D81FC6230BB7C000309F23 /* SampleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D81FC5230BB7C000309F23 /* SampleEvents.swift */; };
@@ -64,6 +65,7 @@
 		C376C67D225E9D8900644468 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3A7B371230A22D100AC4003 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C3A7B373230A23B400AC4003 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		C3B8622F238C8FE1009E59A6 /* AdminSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettingViewController.swift; sourceTree = "<group>"; };
 		C3C86B782304DAA900F87A80 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C3D81FC3230B936B00309F23 /* EventSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSubmissionViewController.swift; sourceTree = "<group>"; };
 		C3D81FC5230BB7C000309F23 /* SampleEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEvents.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				C3ECE7132310BC3100FED0BC /* PendingEventsViewController.swift */,
 				C371C29E2367C1CF005566E0 /* PendingEventDetailViewController.swift */,
 				C3ECE7152310BC7500FED0BC /* QRCodeScannerViewController.swift */,
+				C3B8622F238C8FE1009E59A6 /* AdminSettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				C3ECE7162310BC7500FED0BC /* QRCodeScannerViewController.swift in Sources */,
 				C3D81FC8230BB7E600309F23 /* AdminEvent.swift in Sources */,
 				C3E9607522387A4D002E19BF /* SignUpViewController.swift in Sources */,
+				C3B86230238C8FE1009E59A6 /* AdminSettingViewController.swift in Sources */,
 				C3E9607322387A4D002E19BF /* AppDelegate.swift in Sources */,
 				F52D0E8423666176000D0A46 /* OrderHistory.swift in Sources */,
 				C3453CE4230CD8DD008E2BD4 /* EventSubmissionViewController+handlers.swift in Sources */,
@@ -543,14 +547,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6YZ86R5K6;
+				DEVELOPMENT_TEAM = 7GVSYF5F73;
 				INFOPLIST_FILE = "$(SRCROOT)/SJSU GO App/plists/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.danpham.SJSUGOApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonyminaise.SJSUGOApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -565,14 +569,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6YZ86R5K6;
+				DEVELOPMENT_TEAM = 7GVSYF5F73;
 				INFOPLIST_FILE = "$(SRCROOT)/SJSU GO App/plists/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.danpham.SJSUGOApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonyminaise.SJSUGOApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

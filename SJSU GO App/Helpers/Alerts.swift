@@ -78,7 +78,37 @@ struct Alerts {
         showBasicAlertVC(on: vc, with: "Error", message: "Adding session input failed")
     }
     
+    static func showPointsAlertVC(on vc: UIViewController) {
+        showBasicAlertVC(on: vc, with: "No Points Selected", message: "Please select a point value")
+    }
     
+    static func showPrizeSessionClosedAlertVC(on vc: UIViewController) {
+        showBasicAlertVC(on: vc, with: "Session is currently closed", message: "Session will open in the last two months of the semester")
+    }
+    
+    static func showAdminTransferFailedAlertVC(on vc: UIViewController) {
+        showBasicAlertVC(on: vc, with: "Error", message: "Admin transfer failed")
+    }
+    
+    static func showCurrentAdminEmailNotMatchedAlertVC(on vc: UIViewController) {
+        showBasicAlertVC(on: vc, with: "Error", message: "Current admin email does not match the database")
+    }
+    
+    static func showNewAdminEmailNotFoundAlertVC(on vc: UIViewController) {
+        showBasicAlertVC(on: vc, with: "Error", message: "New admin email not found in the database")
+    }
+    
+    private static func showLogOutAlertVC(on vc: UIViewController, with title: String, message: String, action: UIAlertAction) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addAction(action)
+        DispatchQueue.main.async {
+            vc.present(alertVC, animated: true)
+        }
+    }
+    
+    static func showAdminTransferSuccessAlertVC(on vc: UIViewController, action: UIAlertAction) {
+        showLogOutAlertVC(on: vc, with: "Success", message: "Admin transfer successful", action: action)
+    }
     
     private static func showConfirmationAlertVC(on vc: UIViewController, with title: String, message: String, action: UIAlertAction) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -90,7 +120,7 @@ struct Alerts {
     }
     
     static func showSignOutAlertVC(on vc: UIViewController, action: UIAlertAction) {
-        showConfirmationAlertVC(on: vc, with: "Sign Out", message: "Are you sure you want to sign out?", action: action)
+        showConfirmationAlertVC(on: vc, with: "Log Out", message: "Are you sure you want to log out?", action: action)
     }
     
     static func showApproveAlertVC(on vc: UIViewController, action: UIAlertAction) {
