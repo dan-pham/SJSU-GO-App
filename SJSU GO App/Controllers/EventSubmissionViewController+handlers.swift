@@ -85,6 +85,8 @@ extension EventSubmissionViewController: UIImagePickerControllerDelegate, UINavi
     func pick(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        imagePicker.mediaTypes = sourceType == .camera ? UIImagePickerController.availableMediaTypes(for: .camera)! : UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        imagePicker.sourceType = sourceType
         present(imagePicker, animated: true, completion: nil)
     }
     
