@@ -64,6 +64,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         }
         
         let loginNC = storyboard?.instantiateViewController(withIdentifier: "loginNavController")
+        loginNC?.modalPresentationStyle = .fullScreen
         present(loginNC!, animated: true, completion: nil)
     }
     

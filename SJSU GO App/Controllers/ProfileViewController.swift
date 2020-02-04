@@ -61,7 +61,9 @@ class ProfileViewController: UIViewController {
     
     func configureUserProfileImage() {
         if let profileImageUrl = TabBarViewController.user.profileImageUrl {
-            profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
+            profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl) { (image) in
+                DispatchQueue.main.async { self.profileImageView.image = image }
+            }
         } else {
             profileImageView.image = UIImage(named: "profilePlaceholderImage")
         }

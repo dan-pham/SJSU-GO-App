@@ -86,6 +86,7 @@ class LoginViewController: UIViewController
                 } else {
                     self.activityIndicator.hideActivityIndicator(self)
                     let tabBarNavController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarNavController")
+                    tabBarNavController?.modalPresentationStyle = .fullScreen
                     self.present(tabBarNavController!, animated: true)
                 }
             }
@@ -96,7 +97,7 @@ class LoginViewController: UIViewController
     
     @IBAction func signUp(_ sender: Any) {
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        
+        signUpVC.modalPresentationStyle = .fullScreen
         navigationController?.navigationBar.isHidden = true
         navigationController?.pushViewController(signUpVC, animated: true)
     }

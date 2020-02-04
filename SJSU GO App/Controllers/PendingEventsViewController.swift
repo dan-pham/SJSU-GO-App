@@ -106,8 +106,9 @@ class PendingEventsViewController: UIViewController
         imageUrl = dictionary["image_url"] as? String ?? ""
         
         let imageView = UIImageView()
-        imageView.loadImageUsingCacheWithUrlString(imageUrl)
-        event.image = imageView.image
+        imageView.loadImageUsingCacheWithUrlString(imageUrl) { (image) in
+            DispatchQueue.main.async { event.image = image }
+        }
 
         return event
     }
@@ -137,7 +138,7 @@ class PendingEventsViewController: UIViewController
     @IBAction func settingsButtonPressed(_ sender: Any) {
         let adminSettingsVC = storyboard?.instantiateViewController(withIdentifier: "AdminSettingViewController") as! AdminSettingViewController
         
-                navigationController?.pushViewController(adminSettingsVC, animated: true)
+        navigationController?.pushViewController(adminSettingsVC, animated: true)
     }
     
     @IBAction func logOut(_ sender: Any) {
@@ -148,6 +149,7 @@ class PendingEventsViewController: UIViewController
         }
             
         let loginNC = storyboard?.instantiateViewController(withIdentifier: "loginNavController")
+        loginNC?.modalPresentationStyle = .fullScreen
         present(loginNC!, animated: true, completion: nil)
     }
     

@@ -60,17 +60,10 @@ class AdminSettingViewController: UIViewController
                                 }
 
                                 let loginNC = self.storyboard?.instantiateViewController(withIdentifier: "loginNavController")
+                                loginNC?.modalPresentationStyle = .fullScreen
                                 self.present(loginNC!, animated: true, completion: nil)
                             }))
-//                            // log out the current user
-//                            do {
-//                                try Auth.auth().signOut()
-//                            } catch let signOutError {
-//                                Alerts.showLogOutErrorAlertVC(on: self, message: signOutError.localizedDescription)
-//                            }
-//
-//                            let loginNC = self.storyboard?.instantiateViewController(withIdentifier: "loginNavController")
-//                            self.present(loginNC!, animated: true, completion: nil)
+
                         } else {
                             print("Current Email doesn't match!")
                             Alerts.showCurrentAdminEmailNotMatchedAlertVC(on: self)

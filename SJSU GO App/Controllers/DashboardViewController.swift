@@ -132,8 +132,9 @@ class DashboardViewController: UIViewController {
         imageUrl = dictionary["image_url"] as? String ?? ""
         
         let imageView = UIImageView()
-        imageView.loadImageUsingCacheWithUrlString(imageUrl)
-        event.image = imageView.image
+        imageView.loadImageUsingCacheWithUrlString(imageUrl) { (image) in
+            DispatchQueue.main.async { event.image = image }
+        }
         
         return event
     }
